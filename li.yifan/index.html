@@ -9,7 +9,8 @@
    <link rel="stylesheet" href="css/app.css">
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
-   <script src="js/app.js"></script>
+   <script src="lib/js/app.js"></script>
+   <script src="lib/js/signin.js"></script>
    
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
@@ -17,27 +18,31 @@
 </head>
 <body>
 
+
    <section data-role="page" id="signin-page">
       <div data-role="main">
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
             <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="icon" style="width:90vw;height:90vw;"><defs><style>.stroke-thick-center,.stroke-thin-center{fill:none;stroke:#000;stroke-miterlimit:10;}.stroke-thick-center{stroke-width:10px;}.stroke-thin-center{stroke-width:4px;}</style></defs><title>shape-3d-icosahedron</title><polygon class="stroke-thick-center" points="15.28 30.13 15 30.3 15 70.7 15.14 70.79 15.4 70.93 50 90.7 84.6 70.93 84.86 70.78 85 70.7 85 30.3 84.73 30.13 50.3 10.47 50 10.3 15.28 30.13"></polygon><line class="stroke-thin-center" x1="15" y1="30" x2="32" y2="39"></line><line class="stroke-thin-center" x1="50" y1="11" x2="32" y2="39"></line><line class="stroke-thin-center" x1="68" y1="39" x2="50" y2="11"></line><line class="stroke-thin-center" x1="85" y1="30" x2="68" y2="39"></line><line class="stroke-thin-center" x1="32" y1="39" x2="68" y2="39"></line><line class="stroke-thin-center" x1="15" y1="71" x2="32" y2="39"></line><line class="stroke-thin-center" x1="85" y1="71" x2="68" y2="39"></line><line class="stroke-thin-center" x1="50" y1="71" x2="32" y2="39"></line><line class="stroke-thin-center" x1="68" y1="39" x2="50" y2="71"></line><line class="stroke-thin-center" x1="15" y1="71" x2="50" y2="71"></line><polyline class="stroke-thin-center" points="50 91 50 90.7 50 71"></polyline><line class="stroke-thin-center" x1="85" y1="71" x2="50" y2="71"></line></svg> -->
          </div>
-         <form id="signin-form" data-ajax="false" style="padding:1em">
-            <div class="form-control">
-               <label for="signin-username" class="form-label">Username</label>
-               <input id="signin-username" type="text" class="form-input" data-role="none" placeholder="Type your user name">
-            </div>
-            <div class="form-control">
-               <label for="signin-password" class="form-label">Password</label>
-               <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
-            </div>
-            <div class="form-control">
-               <a href="#list-page" class="form-button">Sign In</a>
-            </div>
-            <div class="form-control" style="text-align:center;font-size:0.8em">
-               Don't have an account? <a href="#signup-page">Sign Up</a>!
-            </div>
-         </form>
+         <div class="card soft">
+            <form id="signin-form" data-ajax="false" style="padding:1em">
+               <div class="form-control">
+                  <label for="signin-username" class="form-label">Email Address</label>
+                  <input id="signin-username" type="text" class="form-input" data-role="none" placeholder="example@mooday.com">
+               </div>
+               <div class="form-control">
+                  <label for="signin-password" class="form-label">Password</label>
+                  <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Insert password here">
+               </div>
+               <div class="form-control">
+                  <input type="submit" data-role="none" class="half-button-center" value="Sign in">
+                  <!-- <a href="#map-page" class="half-button-center">Sign In</a> -->
+               </div>
+               <div class="form-control" style="text-align:center;font-size:0.8em">
+                  Don't have an account? <a href="#signup-page">Sign Up</a>!
+               </div>
+            </form>
+         </div>
       </div>
    </section>
 
@@ -53,7 +58,7 @@
                <input id="signup-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
             <div class="form-control">
-               <a href="#list-page" class="form-button">Sign Up</a>
+               <a href="#map-page" class="form-button">Sign Up</a>
             </div>
             <div class="form-control" style="text-align:center;font-size:0.8em">
                Already have an account? <a href="#signin-page">Sign In</a>!
@@ -62,7 +67,7 @@
       </div>
    </section>
 
-   <section data-role="page" id="recent-page">
+   <!-- <section data-role="page" id="recent-page">
       <div data-role="main">
       </div>
       <footer data-role="footer">
@@ -72,56 +77,250 @@
             <li><a href="#user-profile-page">Profile</a></li>
          </ul>
       </footer>
+   </section> -->
+
+   <section data-role="page" id="map-page">
+      <div data-role="main">
+         <div class="floater right top">
+            <div class="btn-circle" data-toggle="#map-drawer">&plus;</div>
+         </div>
+
+         <div class="modal" id="map-drawer">
+            <!-- <div class="modal-back" data-deactivate="#recent-drawer"></div> -->
+            <div class="modal-drawer left">
+               <div class="modal-head">Title</div>
+               <div class="modal-body">
+                  Links and such
+               </div>
+            </div>
+         </div>
+      </div>
+     
+      
+       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
+         <ul style="height: 100%;">
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#map-page">
+                  <div class="icon-image"><img src="img/map-active.png" class="icon"></div>
+                  <div class="icon-label-active">Map</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#list-page">
+                  <div class="icon-image"><img src="img/journal.png" class="icon"></div>
+                  <div class="icon-label">Journal</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+                <a href="#add-page">
+                  <div class="icon-image"><img src="img/add.png" class="icon"></div>
+                  <div class="icon-label">Add</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#user-profile-page">
+                  <div class="icon-image"><img src="img/profile.png" class="icon"></div>
+                  <div class="icon-label">Profile</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#setting-page">
+                  <div class="icon-image"><img src="img/setting.png" class="icon"></div>
+                  <div class="icon-label">Setting</div>
+               </a>
+            </li>
+               
+         </ul>
+      </footer>
+      
+
    </section>
 
    <section data-role="page" id="list-page">
       <header data-role="header">
-         <h1>Animals</h1>
+         <h1>Journals</h1>
          <ul>
             <li class="flex-stretch"></li>
-            <li><a href="#">+</a></li>
+            <li><a href="#" data-activate="#list-add-animal">+</a></li>
          </ul>
       </header>
       <div data-role="main">
-         <ul>
-            <!-- li*10>a[href=#animal-profile-page]>{Animal $} -->
-            <li><a href="#animal-profile-page">Animal 1</a></li>
-            <li><a href="#animal-profile-page">Animal 2</a></li>
-            <li><a href="#animal-profile-page">Animal 3</a></li>
-            <li><a href="#animal-profile-page">Animal 4</a></li>
-            <li><a href="#animal-profile-page">Animal 5</a></li>
-            <li><a href="#animal-profile-page">Animal 6</a></li>
-            <li><a href="#animal-profile-page">Animal 7</a></li>
-            <li><a href="#animal-profile-page">Animal 8</a></li>
-            <li><a href="#animal-profile-page">Animal 9</a></li>
-            <li><a href="#animal-profile-page">Animal 10</a></li>
-         </ul>
+         <div class="overscroll">
+            <ul>
+               <!-- li*10>a[href=#journal-page]>{Animal $} -->
+               <li><a href="#journal-page">Animal 1</a></li>
+               <li><a href="#journal-page">Animal 2</a></li>
+               <li><a href="#journal-page">Animal 3</a></li>
+               <li><a href="#journal-page">Animal 4</a></li>
+               <li><a href="#journal-page">Animal 5</a></li>
+               <li><a href="#journal-page">Animal 6</a></li>
+               <li><a href="#journal-page">Animal 7</a></li>
+               <li><a href="#journal-page">Animal 8</a></li>
+               <li><a href="#journal-page">Animal 9</a></li>
+               <li><a href="#journal-page">Animal 10</a></li>
+               <li><a href="#journal-page">Animal 1</a></li>
+               <li><a href="#journal-page">Animal 2</a></li>
+               <li><a href="#journal-page">Animal 3</a></li>
+               <li><a href="#journal-page">Animal 4</a></li>
+               <li><a href="#journal-page">Animal 5</a></li>
+               <li><a href="#journal-page">Animal 6</a></li>
+               <li><a href="#journal-page">Animal 7</a></li>
+               <li><a href="#journal-page">Animal 8</a></li>
+               <li><a href="#journal-page">Animal 9</a></li>
+               <li><a href="#journal-page">Animal 10</a></li>
+               <li><a href="#journal-page">Animal 1</a></li>
+               <li><a href="#journal-page">Animal 2</a></li>
+               <li><a href="#journal-page">Animal 3</a></li>
+               <li><a href="#journal-page">Animal 4</a></li>
+               <li><a href="#journal-page">Animal 5</a></li>
+               <li><a href="#journal-page">Animal 6</a></li>
+               <li><a href="#journal-page">Animal 7</a></li>
+               <li><a href="#journal-page">Animal 8</a></li>
+               <li><a href="#journal-page">Animal 9</a></li>
+               <li><a href="#journal-page">Animal 10</a></li>
+               <li><a href="#journal-page">Animal 1</a></li>
+               <li><a href="#journal-page">Animal 2</a></li>
+               <li><a href="#journal-page">Animal 3</a></li>
+               <li><a href="#journal-page">Animal 4</a></li>
+               <li><a href="#journal-page">Animal 5</a></li>
+               <li><a href="#journal-page">Animal 6</a></li>
+               <li><a href="#journal-page">Animal 7</a></li>
+               <li><a href="#journal-page">Animal 8</a></li>
+               <li><a href="#journal-page">Animal 9</a></li>
+               <li><a href="#journal-page">Animal 10</a></li>
+               <li><a href="#journal-page">Animal 1</a></li>
+               <li><a href="#journal-page">Animal 2</a></li>
+               <li><a href="#journal-page">Animal 3</a></li>
+               <li><a href="#journal-page">Animal 4</a></li>
+               <li><a href="#journal-page">Animal 5</a></li>
+               <li><a href="#journal-page">Animal 6</a></li>
+               <li><a href="#journal-page">Animal 7</a></li>
+               <li><a href="#journal-page">Animal 8</a></li>
+               <li><a href="#journal-page">Animal 9</a></li>
+               <li><a href="#journal-page">Animal 10</a></li>
+            </ul>
+         </div>
       </div>
-      <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+      <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
+         <ul style="height: 100%;">
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#map-page">
+                  <div class="icon-image"><img src="img/map.png" class="icon"></div>
+                  <div class="icon-label">Map</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#list-page">
+                  <div class="icon-image"><img src="img/journal-active.png" class="icon"></div>
+                  <div class="icon-label-active">Journal</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+                <a href="#add-page">
+                  <div class="icon-image"><img src="img/add.png" class="icon"></div>
+                  <div class="icon-label">Add</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#user-profile-page">
+                  <div class="icon-image"><img src="img/profile.png" class="icon"></div>
+                  <div class="icon-label">Profile</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#setting-page">
+                  <div class="icon-image"><img src="img/setting.png" class="icon"></div>
+                  <div class="icon-label">Setting</div>
+               </a>
+            </li>
+               
          </ul>
       </footer>
+
+      <div class="modal" id="list-add-animal">
+         <div class="modal-back" data-deactivate="#list-add-animal"></div>
+         <form class="modal-popup" id="list-add-animal-form" data-ajax="false">
+            <div class="modal-head"><h1>Add Animal</h1></div>
+            <div class="modal-body">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Animal Name</label>
+                  <input id="list-add-name" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Animal Type</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Animal Breed</label>
+                  <input id="list-add-breed" type="text" class="form-input" data-role="none">
+               </div>
+            </div>
+            <div class="modal-foot">
+               <input type="submit" value="Save" data-role="none" class="form-button">
+            </div>
+         </form>
+      </div>
+
+
    </section>
+
+   <section data-role="page" id="add-page">
+      <div data-role="main">
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </div>
+      
+   </section>
+
+   
+            
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         User Profile
+         User Profile<br>
+         <a href="#" class="js-logout">Logout</a> 
       </div>
-      <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+      <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
+         <ul style="height: 100%;">
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#map-page">
+                  <div class="icon-image"><img src="img/map.png" class="icon"></div>
+                  <div class="icon-label">Map</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#list-page">
+                  <div class="icon-image"><img src="img/journal.png" class="icon"></div>
+                  <div class="icon-label">Journal</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+                <a href="#add-page">
+                  <div class="icon-image"><img src="img/add.png" class="icon"></div>
+                  <div class="icon-label">Add</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#user-profile-page">
+                  <div class="icon-image"><img src="img/profile-active.png" class="icon"></div>
+                  <div class="icon-label-active">Profile</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#setting-page">
+                  <div class="icon-image"><img src="img/setting.png" class="icon"></div>
+                  <div class="icon-label">Setting</div>
+               </a>
+            </li>
+               
          </ul>
       </footer>
    </section>
 
-   <section data-role="page" id="animal-profile-page">
+   <section data-role="page" id="journal-page">
       <header data-role="header">
-         <h1>Animal Profile</h1>
+         <h1>Journal 1</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
          </ul>
@@ -129,6 +328,51 @@
       <div data-role="main">
          
       </div>
+   </section>
+
+   <section data-role="page" id="setting-page">
+      <header data-role="header">
+         <h1>Setting</h1>
+         
+      </header>
+      <div data-role="main">
+         
+      </div>
+      <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
+         <ul style="height: 100%;">
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#map-page">
+                  <div class="icon-image"><img src="img/map.png" class="icon"></div>
+                  <div class="icon-label">Map</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#list-page">
+                  <div class="icon-image"><img src="img/journal.png" class="icon"></div>
+                  <div class="icon-label">Journal</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+                <a href="#add-page">
+                  <div class="icon-image"><img src="img/add.png" class="icon"></div>
+                  <div class="icon-label">Add</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#user-profile-page">
+                  <div class="icon-image"><img src="img/profile.png" class="icon"></div>
+                  <div class="icon-label">Profile</div>
+               </a>
+            </li>
+            <li class="display-flex flex-align-center flex-justify-center">
+               <a href="#setting-page">
+                  <div class="icon-image"><img src="img/setting-active.png" class="icon"></div>
+                  <div class="icon-label-active">Setting</div>
+               </a>
+            </li>
+               
+         </ul>
+      </footer>
    </section>
 
 
