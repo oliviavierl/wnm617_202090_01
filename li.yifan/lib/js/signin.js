@@ -15,6 +15,27 @@ const checkSigninForm = () => {
       sessionStorage.removeItem('userId');
 
       // DO SOMETHING HERE
+      //$.mobile.navigate("#login-failure");
+      //$('#login-failure').modal("show");
+      alert('Please check youremail address and the password.');
+      //alert("#login-failure");
+      //$('#login-failure').modal('show');
+      //$("#login-failure").modal('show');
+      //$(function() {
+      //   $("#login-failure") .modal('show');
+      //})
+      //$("#login-failure").modal();
+      //("#login-failure").modal('show');
+      //window.$("#login-failure").modal("show");
+      //.on('click','btn-signin',functiom(e){
+      //   $("#login-failure").modal("show");
+      //})
+      //Window.showModal("#login-failure");
+      //$.openModal("#login-failure");  
+      //.openModal("#login-failure");   
+      //$.modal.openModal("#login-failure");
+      //modal.openModal("#login-failure");
+
    }
 
    checkUserId();

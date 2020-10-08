@@ -7,6 +7,7 @@
 
    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
    <link rel="stylesheet" href="css/app.css">
+   
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
    <script src="lib/js/app.js"></script>
@@ -35,7 +36,7 @@
                   <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Insert password here">
                </div>
                <div class="form-control">
-                  <input type="submit" data-role="none" class="half-button-center" value="Sign in">
+                  <input type="submit" data-role="none" class="btn-signin" value="Sign in">
                   <!-- <a href="#map-page" class="half-button-center">Sign In</a> -->
                </div>
                <div class="form-control" style="text-align:center;font-size:0.8em">
@@ -43,6 +44,22 @@
                </div>
             </form>
          </div>
+      </div>
+
+      <div class="modal" id="login-failure">
+         <div class="modal-back" data-deactivate="#login-failure"></div>
+         <form class="modal-popup" id="login-failure-form" data-ajax="false">
+            <div class="modal-head"><h1>Invalid Login</h1></div>
+            <div class="modal-body">
+               <div class="form-control">
+                 <h2>Please check your email address and the password.</h2>
+               </div>
+               
+            </div>
+            <div class="modal-foot">
+               <input type="submit" value="confirm" data-role="none" class="form-button">
+            </div>
+         </form>
       </div>
    </section>
 
@@ -146,59 +163,20 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <ul>
+            <!-- <ul> -->
                <!-- li*10>a[href=#journal-page]>{Animal $} -->
-               <li><a href="#journal-page">Animal 1</a></li>
+               <!-- <li><a href="#journal-page">Animal 1</a></li>
                <li><a href="#journal-page">Animal 2</a></li>
-               <li><a href="#journal-page">Animal 3</a></li>
-               <li><a href="#journal-page">Animal 4</a></li>
-               <li><a href="#journal-page">Animal 5</a></li>
-               <li><a href="#journal-page">Animal 6</a></li>
-               <li><a href="#journal-page">Animal 7</a></li>
-               <li><a href="#journal-page">Animal 8</a></li>
-               <li><a href="#journal-page">Animal 9</a></li>
-               <li><a href="#journal-page">Animal 10</a></li>
-               <li><a href="#journal-page">Animal 1</a></li>
-               <li><a href="#journal-page">Animal 2</a></li>
-               <li><a href="#journal-page">Animal 3</a></li>
-               <li><a href="#journal-page">Animal 4</a></li>
-               <li><a href="#journal-page">Animal 5</a></li>
-               <li><a href="#journal-page">Animal 6</a></li>
-               <li><a href="#journal-page">Animal 7</a></li>
-               <li><a href="#journal-page">Animal 8</a></li>
-               <li><a href="#journal-page">Animal 9</a></li>
-               <li><a href="#journal-page">Animal 10</a></li>
-               <li><a href="#journal-page">Animal 1</a></li>
-               <li><a href="#journal-page">Animal 2</a></li>
-               <li><a href="#journal-page">Animal 3</a></li>
-               <li><a href="#journal-page">Animal 4</a></li>
-               <li><a href="#journal-page">Animal 5</a></li>
-               <li><a href="#journal-page">Animal 6</a></li>
-               <li><a href="#journal-page">Animal 7</a></li>
-               <li><a href="#journal-page">Animal 8</a></li>
-               <li><a href="#journal-page">Animal 9</a></li>
-               <li><a href="#journal-page">Animal 10</a></li>
-               <li><a href="#journal-page">Animal 1</a></li>
-               <li><a href="#journal-page">Animal 2</a></li>
-               <li><a href="#journal-page">Animal 3</a></li>
-               <li><a href="#journal-page">Animal 4</a></li>
-               <li><a href="#journal-page">Animal 5</a></li>
-               <li><a href="#journal-page">Animal 6</a></li>
-               <li><a href="#journal-page">Animal 7</a></li>
-               <li><a href="#journal-page">Animal 8</a></li>
-               <li><a href="#journal-page">Animal 9</a></li>
-               <li><a href="#journal-page">Animal 10</a></li>
-               <li><a href="#journal-page">Animal 1</a></li>
-               <li><a href="#journal-page">Animal 2</a></li>
-               <li><a href="#journal-page">Animal 3</a></li>
-               <li><a href="#journal-page">Animal 4</a></li>
-               <li><a href="#journal-page">Animal 5</a></li>
-               <li><a href="#journal-page">Animal 6</a></li>
-               <li><a href="#journal-page">Animal 7</a></li>
-               <li><a href="#journal-page">Animal 8</a></li>
-               <li><a href="#journal-page">Animal 9</a></li>
-               <li><a href="#journal-page">Animal 10</a></li>
-            </ul>
+               <li><a href="#journal-page">Animal 3</a></li> -->
+               
+            <!-- </ul> -->
+            <div class="card soft">
+               <a href="#journal-page">
+                  <div></div>
+               </a>
+            </div>
+            <div class="card soft"></div>
+            <div class="card soft"></div>
          </div>
       </div>
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
@@ -266,10 +244,69 @@
 
    <section data-role="page" id="add-page">
       <div data-role="main">
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+         <ul class="back-icon">
+            <a href="#" data-rel="back"><img src="img/back.png"></a>
          </ul>
+
+
+
+         <div class="card soft center">
+            <h3>How are you?</h3>
+            <a href="#" data-activate="#choose-date"><h5>Thursday, Sep 10, 8:00 PM</h5></a>
+
+            <ul style="height: 100%; display: flex; flex-direction: row; padding: 0;">
+               <li class="display-flex flex-align-center flex-justify-center">
+                  <a href="#">
+                     <div class="mood-image"><img src="img/happy.png" class="mood"></div>
+                  </a>
+               </li>
+                <li class="display-flex flex-align-center flex-justify-center">
+                  <a href="#">
+                     <div class="mood-image"><img src="img/smile.png" class="mood"></div>
+                  </a>
+               </li>
+                <li class="display-flex flex-align-center flex-justify-center">
+                  <a href="#">
+                     <div class="mood-image"><img src="img/normal.png" class="mood"></div>
+                  </a>
+               </li>
+                <li class="display-flex flex-align-center flex-justify-center">
+                  <a href="#">
+                     <div class="mood-image"><img src="img/sad.png" class="mood"></div>
+                  </a>
+               </li>
+                <li class="display-flex flex-align-center flex-justify-center">
+                  <a href="#">
+                     <div class="mood-image"><img src="img/angry.png" class="mood"></div>
+                  </a>
+               </li>
+            
+               
+            </ul>
+         </div>
       </div>
+
+      <div class="modal" id="choose-date">
+         <div class="modal-back" data-deactivate="#choose-date"></div>
+         <form class="modal-popup" id="choose-date-form" data-ajax="false">
+            <div class="modal-head"><h1>Change Date</h1></div>
+            <div class="modal-body">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Date</label>
+                  <input id="list-add-name" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Time</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none">
+               </div>
+               
+            </div>
+            <div class="modal-foot">
+               <input type="submit" value="Save" data-role="none" class="form-button">
+            </div>
+         </form>
+      </div>
+
       
    </section>
 
@@ -278,8 +315,46 @@
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         User Profile<br>
-         <a href="#" class="js-logout">Logout</a> 
+         <div class="icon">
+            <a class="profile-edit" href="#">&plus;</a>
+         </div>
+         <div class="card soft photo">
+            <div class="photo-circle"><!-- <img src="img/profile-photo.png"> --></div>
+            <h1>Olivia</h1>
+            <h6>If you want the rainbow, you gotta put up with the rain.</h6>
+         </div>
+         <div class="card soft">
+            <!-- <div style="display: flex;">
+               <ul class="profile-list-icon">
+                  <li><img src="img/phone.png" class="icon"></li>
+                  <li><img src="img/mail.png" class="icon"></li>
+                  <li><img src="img/address.png" class="icon"></li>
+               </ul>
+               <ul class="profile-list-text">
+                  <li>(628)219-6375</li>
+                  <li>oliviavierl0305@gmail.com</li>
+                  <li>888 Ofarell Street, 94109</li>
+               </ul>
+            </div> -->
+            <ul  class="profile-list">
+               <li class="row">
+                  <div class="flex-none"><img src="img/phones.png" class="profile-icon"></div>
+                  <div class="flex-stretch"><h7>(628)219-6375</h7></div>
+               </li>
+               <li class="row">
+                  <div class="flex-none"><img src="img/mails.png" class="profile-icon"></div>
+                  <div class="flex-stretch"><h7>oliviavierl0305@gmail.com</h7></div>
+               </li>
+               <li class="row">
+                  <div class="flex-none"><img src="img/addresss.png" class="profile-icon"></div>
+                  <div class="flex-stretch"><h7>888 Ofarell Street, 94109</h7></div>
+               </li>
+            </ul>
+         </div>
+
+
+
+         <div class="half-button-center"><a href="#" class="js-logout">Logout</a></div>
       </div>
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
@@ -322,7 +397,8 @@
       <header data-role="header">
          <h1>Journal 1</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <!-- Back icon from w3schools.com -->
+            <a href="#" data-rel="back">Back</a>
          </ul>
       </header>
       <div data-role="main">
