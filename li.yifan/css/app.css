@@ -23,6 +23,7 @@
     --color-main-blue: #496882;
     --color-main-green: #124b5d;
     --color-main-lightg: #71888c;
+    --color-main-card: #23374a;
 
     --color-frame-dark: #1b191e;
     --color-frame-medium: #5c656d;
@@ -76,6 +77,13 @@ h6 {
 h7 {
   font-size: 0.82em;
   font-weight: normal;
+
+
+}
+
+h8 {
+  font-size: 0.82em;
+  font-weight: bold;
 
 
 }
@@ -261,51 +269,51 @@ a:hover {
 
 
 
+
+[data-role='main'] {
+   background-position:center;
+   background-size:cover;
+}
 /* PAGE SPECIFICS */
 #signin-page [data-role='main'] {
    display:flex;
    flex-direction:column;
    background-image:url('../img/login_background.jpg');
-   background-position:center;
-   background-size:cover;
 }
-}
+
 #signup-page [data-role='main'] {
    display:flex;
    align-items:center;
    justify-content:center;
+   background-color: #1a2b3c;
 }
 
 #map-page [data-role='main'] {
    background-image:url('../img/map_main.jpg');
-   background-position:center;
-   background-size:cover;
 }
 
-#list-page [data-role='main'] {
-   background-color: #1a2b3c;
-   background-position:center;
-   background-size:cover;
-}
+#list-page [data-role='main'],
 #user-profile-page [data-role='main'] {
    background-color: #1a2b3c;
-   background-position:center;
-   background-size:cover;
 }
 
 #add-page [data-role='main'] {
    /* background-color: #1a2b3c; */
    background-image:url('../img/add-new-mood.jpg');
-   background-position:center;
-   background-size:cover;
-}
-#user-profile-page [data-role='main'] {
-   background-color: #1a2b3c;
-   /* background-image:url('../img/profile.jpg'); */
-   background-position:center;
-   background-size:cover;
 }
 
+#journal-page [data-role='main'] {
+  
+   background-image:url('../img/single-journal.jpg');
+}
+
+#user-settings-page [data-role='main'],
+#user-profile-edit-page [data-role='main'],
+#user-password-edit-page [data-role='main'],
+#setting-page [data-role='main'] {
+  background-color: #1a2b3c;
+   
+}
 
 
 /* MODEL */
@@ -358,11 +366,11 @@ a:hover {
 }
 .modal-head,
 .modal-foot {
-    background-color: var(--color-neutral-lighter);
+    background-color: var(--color-main-navy);
     padding: 0.5em 1em;
 }
 .modal-body {
-    background-color: var(--color-white);
+    background-color: var(--color-main-navy);
     padding: 1em;
 }
 .modal-head h1 {
@@ -408,6 +416,30 @@ a:hover {
 }
 
 
+.modal-toast {
+   position: absolute;
+   width: 50%;
+   min-height: var(--header-height);
+   background-color: var(--color-main-orange);
+   border-radius: 0.2em;
+   box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
+   left: 50%;
+   text-align: center;
+   padding: 1em;
+   transition:all 0.3s;
+}
+.modal-toast.top {
+   top:1em;
+   transform:translate(-50%,-1em);
+}
+.modal-toast.bottom {
+   bottom:1em;
+   transform:translate(-50%,1em);
+}
+.modal.active .modal-toast {
+   transform: translate(-50%,0);
+   pointer-events:initial;
+}
 
 
 /* FLOATER */
@@ -432,6 +464,67 @@ a:hover {
    box-shadow:2px 2px 5px rgba(0,0,0,0.15);
 }
 
+
+/* Profile */
+.user-profile-image img {
+   width:calc(100vmin - 4em);
+   height:calc(100vmin - 4em);
+   margin:2em;
+   border-radius:50%;
+
+   object-fit:cover;
+}
+
+
+
+
+/* SETTINGS */
+.settings-list {
+   list-style-type:none;
+   padding:0;
+   margin:0;
+}
+.settings-list a {
+   padding: 0.5em 1em;
+}
+.settings-list li:not(:first-child) {
+   border-top: 1px solid var(--color-neutral-medium);
+}
+
+.settings-list a {
+   display:block;
+   position: relative;
+}
+.settings-list a:not([href='#'])::after {
+   position:absolute;
+   content:'>';
+   top:50%;
+   right:1em;
+   transform:translateY(-50%);
+}
+
+/* ANIMAL LIST */
+.animallist-icon img {
+   width: 100px;
+   height: 80px;
+   vertical-align: text-bottom;
+   object-fit: cover;
+}
+.animallist-item {
+   display: flex;
+   margin: 1em;
+   background-color: #ffffff;
+   box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+   border-radius: 1em;
+   overflow: hidden;
+}
+.animallist-description {
+   padding:0.5em;
+   flex: 1 1 auto;
+}
+.animallist-name {
+   font-size:1.2em;
+}
 
 
 
@@ -556,6 +649,13 @@ img.icon {
   /* vertical-align: text-bottom; */
 }
 
+img.icon-edit {
+  width: 2em;
+  height: auto;
+  display: inline-flex;
+  float: right;
+}
+
 .back-icon img {
   position: absolute;
   top: 3.35em;
@@ -606,6 +706,7 @@ img.mood {
   margin-top: 1.2em;
   margin-bottom: 1.1em;
   vertical-align: text-bottom;
+  align-items: center;
 }
 
 .profile-icon {
@@ -617,7 +718,102 @@ img.mood {
 
 .profile-edit {
   position: absolute;
-  align-items: right;
   margin-right: 1em;
   margin-top: 3em;
+  width: 3em;
+  height: auto;
+
+}
+
+
+/* Map Page */
+
+.hotdog {
+  display: flex;
+  background-color: white;
+  border-radius: 2em;
+  margin: 1rem;
+  align-items: center;
+  line-height: var(--header-height);
+  padding: 0 1rem;
+  font-size: 0.8em;
+  margin-top: 176%;
+}
+
+.search-input {
+  width: 100%;
+  display: inline-block;
+  border-width: 0;
+  background-color: transparent;
+  padding: 0 0.5em;
+  border-radius: 1.5em;
+  font: inherit;
+  outline: 0;
+  
+  }
+
+.search-icon {
+  height: 2em;
+  width: 2em;
+}
+
+
+/* Journal Page */
+img.list-mood {
+  width: auto;
+  height: 3em;
+  margin: 0.3em 2em 0.3em 1em;
+}
+
+.card-row {
+  display: flex;
+  margin: 0;
+  vertical-align: text-bottom;
+  align-items: center;
+}
+
+.journal-row {
+  display: flex;
+  margin-top: 0.5em;
+  margin-bottom:0.1em;
+  vertical-align: text-bottom;
+  align-items: center;
+}
+
+/* .journal-mood-image {
+  line-height: 3em;
+  align-items: center;
+  vertical-align: center;
+
+} */
+
+.calendar-date {
+  list-style: none;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+li.calenar-date {
+  margin:0 0.8em;
+}
+
+.calendar {
+  margin-bottom: 3.2em;
+}
+
+.calendar-row {
+  display: flex;
+  margin-top: 0.5em;
+  margin-bottom:0.1em;
+  vertical-align: text-bottom;
+  align-items: center;
+}
+
+img.down-icon {
+  width: auto;
+  height: 2em;
+  
+}
+li.date-active {
+  text-decoration: underline;
 }

@@ -42,6 +42,12 @@
             </div>
          </form>
       </div>
+
+      <div class="modal" id="signin-warning">
+         <div class="modal-toast top" data-deactivate="#signin-warning">
+            <div class="message">Failure</div>
+         </div>
+      </div>
    </section>
 
    <section data-role="page" id="signup-page">
@@ -102,9 +108,9 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <ul>
+            <!-- <ul> -->
                <!-- li*10>a[href=#animal-profile-page]>{Animal $} -->
-               <li><a href="#animal-profile-page">Animal 1</a></li>
+               <!-- <li><a href="#animal-profile-page">Animal 1</a></li>
                <li><a href="#animal-profile-page">Animal 2</a></li>
                <li><a href="#animal-profile-page">Animal 3</a></li>
                <li><a href="#animal-profile-page">Animal 4</a></li>
@@ -144,7 +150,40 @@
                <li><a href="#animal-profile-page">Animal 8</a></li>
                <li><a href="#animal-profile-page">Animal 9</a></li>
                <li><a href="#animal-profile-page">Animal 10</a></li>
-            </ul>
+            </ul> -->
+            <div class="animallist">
+               <div class="animallist-item">
+                  <div class="animallist-icon">
+                     <img src="https://via.placeholder.com/400x400/77d/fff?text=horse" alt="">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Juniper</div>
+                     <div class="animallist-type"><strong>Type</strong> Horse</div>
+                     <div class="animallist-breed"><strong>Breed</strong> Andalusian</div>
+                  </div>
+               </div>
+               <div class="animallist-item">
+                  <div class="animallist-icon">
+                     <img src="https://via.placeholder.com/400x400/d77/fff?text=horse" alt="">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Juniper</div>
+                     <div class="animallist-type"><strong>Type</strong> Horse</div>
+                     <div class="animallist-breed"><strong>Breed</strong> Andalusian</div>
+                  </div>
+               </div>
+               <div class="animallist-item">
+                  <div class="animallist-icon">
+                     <img src="https://via.placeholder.com/400x400/7d7/fff?text=horse" alt="">
+                  </div>
+                  <div class="animallist-description">
+                     <div class="animallist-name">Juniper</div>
+                     <div class="animallist-type"><strong>Type</strong> Horse</div>
+                     <div class="animallist-breed"><strong>Breed</strong> Andalusian</div>
+                  </div>
+               </div>
+            </div>
+
          </div>
       </div>
       <footer data-role="footer">
@@ -184,8 +223,13 @@
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         User Profile<br>
-         <a href="#" class="js-logout">Logout</a>
+         <div class="user-profile-image">
+            <img src="https://via.placeholder.com/600x500?text=profile" alt="">
+         </div>
+         <h2>Hamilton Cline</h2>
+         <h3>@bronkula</h3>
+         <div><a href="#user-settings-page">Settings</a></div>
+         
       </div>
       <footer data-role="footer">
          <ul>
@@ -194,6 +238,76 @@
             <li><a href="#user-profile-page">Profile</a></li>
          </ul>
       </footer>
+   </section>
+
+    <section data-role="page" id="user-settings-page">
+      <header data-role="header">
+         <h1>User Settings</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <ul class="settings-list">
+            <li><a href="#user-profile-edit-page">Update Profile</a></li>
+            <li><a href="#user-password-edit-page">Change Password</a></li>
+            <li><a href="#" class="js-logout">Logout</a></li>
+         </ul>
+      </div>
+   </section>
+
+   <section data-role="page" id="user-profile-edit-page">
+      <header data-role="header">
+         <h1>User Info</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="user-edit-form" data-ajax="false" style="padding:1em">
+            <div class="form-control">
+               <label for="user-edit-username" class="form-label">Username</label>
+               <input id="user-edit-username" type="text" class="form-input" data-role="none" placeholder="Type your user name" value="bronkula">
+            </div>
+            <div class="form-control">
+               <label for="user-edit-name" class="form-label">Full Name</label>
+               <input id="user-edit-name" type="text" class="form-input" data-role="none" placeholder="Type your full name" value="Hamilton Cline">
+            </div>
+            <div class="form-control">
+               <label for="user-edit-email" class="form-label">Email</label>
+               <input id="user-edit-email" type="text" class="form-input" data-role="none" placeholder="Type your user email" value="hcline@academyart.edu">
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section data-role="page" id="user-password-edit-page">
+      <header data-role="header">
+         <h1>Change Password</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="user-password-form" data-ajax="false" style="padding:1em">
+            <div class="form-control">
+               <label for="user-password-oldpassword" class="form-label">Old Password</label>
+               <input id="user-password-oldpassword" type="password" class="form-input" data-role="none" placeholder="Type your old password">
+            </div>
+            <div class="form-control">
+               <label for="user-password-password" class="form-label">New Password</label>
+               <input id="user-password-password" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+            <div class="form-control">
+               <label for="user-password-confirm" class="form-label">Confirm Password</label>
+               <input id="user-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+         </form>
+      </div>
    </section>
    
 

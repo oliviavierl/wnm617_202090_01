@@ -57,3 +57,17 @@ $(()=>{
    })
 
 })
+
+
+
+// CLEAR INPUT Referrence from CSDN
+
+$(function(){
+   $('.ydr').on('click',function () {
+      $(':input','form-input')
+         .not(':button, :submit, :reset, :hidden')
+         .val('')
+         .removeAttr('checked')
+         .removeAttr('selected');
+   });
+})
