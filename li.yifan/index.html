@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+   <link rel="shortcut icon" href="img/happy.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mood Tracker</title>
 
@@ -79,6 +80,10 @@
             <div class="form-control">
                <label for="signup-password" class="form-label">Password</label>
                <input id="signup-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
+            </div>
+            <div class="form-control">
+               <label for="signup-email" class="form-label">Email</label>
+               <input id="signup-email" type="email" class="form-input" data-role="none" placeholder="Type your email">
             </div>
             <div class="form-control">
                <a href="#map-page" class="form-button">Sign Up</a>
@@ -165,6 +170,25 @@
          </ul>
       </header>
       <div data-role="main">
+         <div class="calendar">
+            <!-- <div class="calendar card soft"> -->
+               <!-- <input type="datetime-local"> -->
+               <input type="date" data-role="none" class="form-input calendar">
+               <!-- <div class="calendar-row">
+                  <h8 class="flex-stretch">September 2020</h8>
+                  <img src="img/down.png" class="down-icon">
+               </div>
+               <ul class="calendar-date flex-stretch">
+                  <a href="#"><li>6</li></a>
+                  <a href="#"><li>7</li></a>
+                  <a href="#"><li>8</li></a>
+                  <a href="#" class="date-active"><li>9</li></a>
+                  <a href="#"><li>10</li></a>
+                  <a href="#"><li>11</li></a>
+                  <a href="#"><li>12</li></a>
+               </ul> -->
+            <!-- </div> -->
+         </div>
          <div class="overscroll" style="padding-bottom: 6em;">
 
              <!-- <div class="animallist">
@@ -182,25 +206,7 @@
               
             </div> -->
 
-            <div class="calendar">
-               <div class="calendar card soft">
-                  <!-- <input type="datetime-local"> -->
-                  <input type="date" class="form-input calendar">
-                  <!-- <div class="calendar-row">
-                     <h8 class="flex-stretch">September 2020</h8>
-                     <img src="img/down.png" class="down-icon">
-                  </div>
-                  <ul class="calendar-date flex-stretch">
-                     <a href="#"><li>6</li></a>
-                     <a href="#"><li>7</li></a>
-                     <a href="#"><li>8</li></a>
-                     <a href="#" class="date-active"><li>9</li></a>
-                     <a href="#"><li>10</li></a>
-                     <a href="#"><li>11</li></a>
-                     <a href="#"><li>12</li></a>
-                  </ul> -->
-               </div>
-            </div>
+            
            
             <div class="card soft">
                <a href="#journal-page" class="card-row">
@@ -308,24 +314,25 @@
    </section>
 
       <section data-role="page" id="journal-page">
-      <header data-role="header">
+      <!-- <header data-role="header">
          <h1>Journal 1</h1>
          <ul>
-            <!-- Back icon from w3schools.com -->
             <a href="#" data-rel="back">Back</a>
          </ul>
-      </header>
+      </header> -->
       <div data-role="main">
-         <!-- <ul class="back-icon">
+         <ul class="back-icon">
             <a href="#" data-rel="back"><img src="img/back.png"></a>
          </ul>
-         <h1>Thursday, Sep 10, 2020</h1>
-         <div class="row">
-            <img src="img/happy.png">
-            <h7>Dining in International Smoke</h7>
+         <h4 class="journal-title">Thursday, Sep 10, 2020</h4>
+         <div class="journal-row">
+            <img src="img/happy.png" class="list-mood" style="margin-left: 3em;">
+            <h8>Dining in International Smoke</h8>
          </div>
-         <div class="crard soft"><img src="img/journal-img.jpg"></div>
-         <p>Grilling is the perfect way to experiment and taste different flavors, cuts of meat, and styles of cooking. They all have one thing in common: that delicious taste is reminiscent of an outdoor family gathering! It just doesn’t get any better.</p> -->
+         <div class="overscroll" style="padding-bottom: 6em;">
+            <div class="card soft journal-img" style="padding: 0; height: 11em;"><img src="img/journal-img.jpg"></div>
+            <p style="text-align: left; font-weight: normal;">Grilling is the perfect way to experiment and taste different flavors, cuts of meat, and styles of cooking. They all have one thing in common: that delicious taste is reminiscent of an outdoor family gathering! It just doesn’t get any better.</p>
+         </div>
       </div>
    </section>
 
@@ -496,16 +503,16 @@
       <div data-role="main">
          <form id="user-edit-form" data-ajax="false" style="padding:1em">
             <div class="form-control">
-               <label for="user-edit-username" class="form-label">Username</label>
-               <input id="user-edit-username" type="text" class="form-input" data-role="none" placeholder="Type your user name" value="vierl">
+               <label for="user-edit-username" class="form-label">Cell-phone</label>
+               <input id="user-edit-username" type="text" class="form-input" data-role="none" placeholder="Type your user name" value="6282196375">
             </div>
             <div class="form-control">
-               <label for="user-edit-name" class="form-label">Full Name</label>
-               <input id="user-edit-name" type="text" class="form-input" data-role="none" placeholder="Type your full name" value="Yifan Li">
+               <label for="user-edit-name" class="form-label">Email</label>
+               <input id="user-edit-name" type="text" class="form-input" data-role="none" placeholder="Type your full name" value="oliviavierl0305@gmail.com">
             </div>
             <div class="form-control">
-               <label for="user-edit-email" class="form-label">Email</label>
-               <input id="user-edit-email" type="text" class="form-input" data-role="none" placeholder="Type your user email" value="oliviavierl0305@gmail.com">
+               <label for="user-edit-email" class="form-label">Address</label>
+               <input id="user-edit-email" type="text" class="form-input" data-role="none" placeholder="Type your user email" value="888 Ofarrell Street">
             </div>
          </form>
       </div>
@@ -543,10 +550,27 @@
    <section data-role="page" id="setting-page">
       <header data-role="header">
          <h1>Setting</h1>
-         
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
       </header>
       <div data-role="main">
-         
+         <form id="setting-password-form" data-ajax="false" style="padding:1em">
+            <div class="form-control">
+               <label for="setting-password-oldpassword" class="form-label">Old Password</label>
+               <input id="setting-password-oldpassword" type="password" class="form-input" data-role="none" placeholder="Type your old password">
+            </div>
+            <div class="form-control">
+               <label for="setting-password-password" class="form-label">New Password</label>
+               <input id="setting-password-password" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+            <div class="form-control">
+               <label for="setting-password-confirm" class="form-label">Confirm Password</label>
+               <input id="setting-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+         </form>
       </div>
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
