@@ -742,7 +742,7 @@ img.mood {
 }
 
 
-/* Journal Page */
+/* Journal List Page */
 img.list-mood {
   width: auto;
   height: 3em;
@@ -805,6 +805,8 @@ img.down-icon {
 li.date-active {
   text-decoration: underline;
 }
+
+
 
 
 /* Single Journal Page */
