@@ -14,9 +14,10 @@ $(()=>{
       // Page Routing
       switch(ui.toPage[0].id) {
          case "recent-page": RecentPage(); break;
-         case "list-page": ListPage(); break;
+         //case "list-page": ListPage(); break;
          case "user-profile-page": UserProfilePage(); break;
-         case "animal-profile-page": AnimalProfilePage(); break;
+         // case "animal-profile-page": AnimalProfilePage(); break;
+         case "journal-page": JournalPage(); break;
       }
    }) 
 
@@ -53,9 +54,13 @@ $(()=>{
    })
 
 
-   .on("click",'.js-animal-jump',function(e){
-      sessionStorage.animalId = $(this).data("id");
-      $.mobile.navigate('#animal-profile-page');
+   //.on("click",'.js-animal-jump',function(e){
+     // sessionStorage.animalId = $(this).data("id");
+     // $.mobile.navigate('#animal-profile-page');
+   //})
+    .on("click",'.js-journal-jump',function(e){
+      sessionStorage.moodId = $(this).data("id");
+      $.mobile.navigate('#journal-page');
    })
 
 

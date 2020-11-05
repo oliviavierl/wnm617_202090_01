@@ -29,3 +29,13 @@ const AnimalProfilePage = async() => {
 
    $("#animal-profile-page .profile").html(makeAnimalProfile(d.result))
 }
+
+
+// My design
+const ListPage = async() => {
+   let d = await query({type:'moods_by_user_id',params:[sessionStorage.userId]});
+
+   console.log(d);
+
+   $("#list-page .journallist").html(makeJournalList(d.result))
+}

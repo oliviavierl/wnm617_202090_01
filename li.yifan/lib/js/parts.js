@@ -26,3 +26,21 @@ const makeAnimalProfile = templater(o=>`
    </div>
    <h2>${o.name}</h2>
    `);
+
+// My deesign below
+const makeJournalList = templater(o=>`
+   <div class="card soft">
+               <a href="#journal-page" class="card-row">
+                  <div class="journal-mood-image"><img src="img/happy.png" class="list-mood"></div>
+                  <div>
+                     
+                     <h8>${o.date}</h8>
+                     <div class="journal-row">
+                        <div>${}<img src="img/address.png" class="icon"></div>
+                        <div><h7>${o.address}</div>
+                     </div>
+                    
+                  </div>
+               </a>
+            </div>
+            `);
