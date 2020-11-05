@@ -22,3 +22,5 @@ const templater = f => a =>
 //          },'');
 //    }
 // }
+
+const checkData = ()

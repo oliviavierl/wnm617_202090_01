@@ -8,18 +8,18 @@ $(()=>{
    // event delegation
    $(document)
 
-   .on("pagecontainerbeforeshow",function(e,ui) {
+   //.on("pagecontainerbeforeshow",function(e,ui) {
       // console.log(ui.toPage[0].id)
 
       // Page Routing
-      switch(ui.toPage[0].id) {
-         case "recent-page": RecentPage(); break;
+      //switch(ui.toPage[0].id) {
+         //case "recent-page": RecentPage(); break;
          //case "list-page": ListPage(); break;
-         case "user-profile-page": UserProfilePage(); break;
+         //case "user-profile-page": UserProfilePage(); break;
          // case "animal-profile-page": AnimalProfilePage(); break;
-         case "journal-page": JournalPage(); break;
-      }
-   }) 
+         //case "journal-page": JournalPage(); break;
+      //}
+   //}) 
 
 
 
