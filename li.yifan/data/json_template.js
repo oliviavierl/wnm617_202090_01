@@ -1,3 +1,83 @@
+// MY USER TEMPALTE
+
+[
+  '{{repeat(10)}}',
+  {
+    id:'{{index(1)}}',
+    name: '{{firstName()}} {{surname()}}',
+    username: function(){
+      return 'user'+this.id;
+    },
+    email: function() {
+      return this.username+'@gmail.com';
+    },
+    quote: function (tags) {
+      var quote = ['If you want the rainbow, you gotta put up with the rain.', 'Love life, enjoy everyday~', 'If life were predictable it would cease to be life, and be without flavor.','Life is what happens when you are busy making other plans.'];
+      return quote[tags.integer(0, quote.length - 1)];
+    },
+    password: 'md5(pass)',
+    img:function(tags) {
+      return 'https://via.placeholder.com/400/'+
+        tags.integer(700,999) + '/fff/?text=' + this.username;
+    },
+    favorite: function (tags) {
+      var favorite = ['Si-fi Movies', 'Cooking', 'Outdoor Activities'];
+      return favorite[tags.integer(0, favorite.length - 1)];
+    },
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+  }
+]
+
+// MY MOOD TEMPLATE
+
+[
+  '{{repeat(50)}}',
+  {
+    id:'{{index(1)}}',
+    user_id:'{{integer(1,10)}}',
+    
+    mood: function (tags) {
+      var mood = ['img/happy.png', 'img/smile.png', 'img/normal.png','img/sad.png','img/angry.png'];
+      return mood[tags.integer(0, mood.length - 1)];
+    },
+    date: '{{date(new Date(2020, 0, 1), new Date(), "Thursday, MM-dd-YYYY")}}',
+    address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+    title: '{{lorem(4, "words")}}',
+    img:function(tags) {
+      return 'http://placehold.it/200x100'+
+        tags.integer(700,999) + '/fff/?text=' + this.name;
+    },
+    description: '{{lorem(3,"sentences")}}',
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+  }
+]
+
+
+// MY LOCATION TEMPLATE
+[
+  '{{repeat(250)}}',
+  {
+    id:'{{index(1)}}',
+    mood_id:'{{integer(1,50)}}',
+    
+    
+    lat:'{{floating(37.79801, 37.690455)}}',
+    lng:'{{floating(-122.511241, -122.373676)}}',
+    
+    description: '{{lorem(3,"sentences")}}',
+    
+    // photo choose only one from bottom
+    /* photos:[
+      '{{repeat(1,5)}}',
+      'https://via.placeholder.com/400/'
+    ], */
+    photo: 'https://via.placeholder.com/400/',
+    icon: 'https://via.placeholder.com/100/?text=ICON',
+    
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+  }
+]
+
 // USER TEMPLATE
 
 [
