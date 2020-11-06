@@ -72,6 +72,19 @@ function makeStatement($data) {
       case "check_signin":
          return makeQuery($c,"SELECT * FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
+      case "recent_locations":
+         return makeQuery($c,"SELECT *
+            FROM `track_animals` a
+            RIGHT JOIN (
+               SELECT * FROM `track_locations`
+               ORDER BY `date_create` DESC
+            ) l
+            ON a.id = l.animal_id
+            WHERE a.user_id=?
+            GROUP BY l.animal_id
+            ",$p);
+
+
 
       default: return ["error"=>"No Matched Type"];
    }
