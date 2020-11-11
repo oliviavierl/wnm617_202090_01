@@ -1,33 +1,36 @@
 
 // go look up async and await
 const ListPage = async() => {
-   let d = await query({type:'animals_by_user_id',params:[sessionStorage.userId]});
+   let d = await query({type:'moods_by_user_id',params:[sessionStorage.userId]});
 
    console.log(d);
 
-   $("#list-page .animallist").html(makeAnimalList(d.result))
+   let ddate = new Date(d.result[0].date_create);
+   console.log(ddate.toLocaleString())
+
+   $("#list-page .moodlist").html(makeMoodList(d.result))
 }
 
 
 
 
 
-const RecentPage = async() => {
+const MapPage = async() => {
    let d = await query({type:'recent_locations',params:[sessionStorage.userId]});
 
-   // makeMap("#recent-page .map");
+   // makeMap("#map-page .map");
 
    console.log(d)
 
-   let valid_animals = d.result.reduce((r,o)=>{
+   let valid_moods = d.result.reduce((r,o)=>{
       o.icon = o.img;
       if(o.lat && o.lng) r.push(o);
       return r;
    },[]);
 
-   let map_el = await makeMap("#recent-page .map");
+   let map_el = await makeMap("#map-page .map");
 
-   makeMarkers(map_el,valid_animals)
+   makeMarkers(map_el,valid_moods)
 }
 
 const UserProfilePage = async() => {
@@ -38,18 +41,18 @@ const UserProfilePage = async() => {
    $("#user-profile-page .profile").html(makeUserProfile(d.result))
 }
 
-const AnimalProfilePage = async() => {
-   query({type:'animal_by_id',params:[sessionStorage.animalId]})
+const JournalPage = async() => {
+   query({type:'mood_by_id',params:[sessionStorage.moodId]})
    .then(d=>{
       console.log(d);
-      $("#animal-profile-page .profile")
-         .html(makeAnimalProfile(d.result))
+      $("#journal-page .profile")
+         .html(makeJournal(d.result))
    });
 
-   query({type:'locations_by_animal_id',params:[sessionStorage.animalId]})
+   query({type:'locations_by_mood_id',params:[sessionStorage.moodId]})
    .then(d=>{
       console.log(d);
-      makeMap("#animal-profile-page .map").then(map_el=>{
+      makeMap("#journal-page .map").then(map_el=>{
          makeMarkers(map_el,d.result)
       });
    });
@@ -60,10 +63,3 @@ const AnimalProfilePage = async() => {
 
 
 // My design
-const ListPage = async() => {
-   let d = await query({type:'moods_by_user_id',params:[sessionStorage.userId]});
-
-   console.log(d);
-
-   $("#list-page .journallist").html(makeJournalList(d.result))
-}

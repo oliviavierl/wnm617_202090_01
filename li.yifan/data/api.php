@@ -74,14 +74,14 @@ function makeStatement($data) {
 
       case "recent_locations":
          return makeQuery($c,"SELECT *
-            FROM `track_animals` a
+            FROM `track_moods` a
             RIGHT JOIN (
                SELECT * FROM `track_locations`
                ORDER BY `date_create` DESC
             ) l
-            ON a.id = l.animal_id
+            ON a.id = l.mood_id
             WHERE a.user_id=?
-            GROUP BY l.animal_id
+            GROUP BY l.mood_id
             ",$p);
 
 

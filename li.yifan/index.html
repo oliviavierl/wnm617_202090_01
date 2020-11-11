@@ -12,16 +12,16 @@
    
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
-   <script src="js/maps.js"></script>
-   <!-- <script src="js/functions.js"></script>
-   <script src="js/pages.js"></script>
-   <script src="js/parts.js"></script> -->
-   <script src="lib/js/app.js"></script>
-   <script src="lib/js/signin.js"></script>
+   <script src="js/map.js"></script>
+   <script src="js/function.js"></script>
+   <script src="js/page.js"></script>
+   <script src="js/parts.js"></script>
+   <script src="js/signin.js"></script>
+   <script src="js/app.js"></script>
    
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxFlGCvrBiz53-c8WDpV4bryeCiEkdNdc" defer ></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBobCWzguC2XluA0_C-k_DVIHSmfpDENmc" defer></script>
 
    <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
@@ -85,13 +85,18 @@
                <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your user name">
             </div>
             <div class="form-control">
+               <label for="signup-email" class="form-label">Email</label>
+               <input id="signup-email" type="email" class="form-input" data-role="none" placeholder="Type your email">
+            </div>
+            <div class="form-control">
                <label for="signup-password" class="form-label">Password</label>
                <input id="signup-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
             <div class="form-control">
-               <label for="signup-email" class="form-label">Email</label>
-               <input id="signup-email" type="email" class="form-input" data-role="none" placeholder="Type your email">
+               <label for="confirm-password" class="form-label">Confirm Password</label>
+               <input id="confirm-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
+            
             <div class="form-control">
                <a href="#map-page" class="form-button">Sign Up</a>
             </div>
@@ -199,6 +204,8 @@
          </div>
          <div class="overscroll" style="padding-bottom: 6em;">
 
+            <div class="moodlist"></div>
+
              <!-- <div class="animallist">
                <div class="animallist-item">
                   <div class="animallist-icon">
@@ -216,7 +223,7 @@
 
             
            
-            <div class="card soft">
+            <!-- <div class="card soft">
                <a href="#journal-page" class="card-row">
                   <div class="journal-mood-image"><img src="img/happy.png" class="list-mood"></div>
                   <div>
@@ -257,7 +264,7 @@
                     
                   </div>
                </a>
-            </div>
+            </div> -->
 
          
            
@@ -331,10 +338,18 @@
          </ul>
       </header> -->
       <div data-role="main">
-         <ul class="back-icon">
-            <a href="#" data-rel="back"><img src="img/back.png"></a>
-         </ul>
-         <h4 class="journal-title">Thursday, Sep 10, 2020</h4>
+         <!-- <div class="overscroll"> -->
+            <div class="profile-top">
+               <!-- <ul class="back-icon">
+                  <a href="#" data-rel="back"><img src="img/back.png"></a>
+               </ul> -->
+               <div class="profile"></div>
+            </div>
+         <!-- </div> -->
+         <div class="profile-bottom">
+            <div class="map"></div>
+         </div>
+         <!-- <h4 class="journal-title">Thursday, Sep 10, 2020</h4>
          <div class="journal-row">
             <img src="img/happy.png" class="list-mood" style="margin-left: 3em;">
             <h8>Dining in International Smoke</h8>
@@ -342,7 +357,8 @@
          <div class="overscroll" style="padding-bottom: 6em;">
             <div class="card soft journal-img" style="padding: 0; height: 11em;"><img src="img/journal-img.jpg"></div>
             <p style="text-align: left; font-weight: normal;">Grilling is the perfect way to experiment and taste different flavors, cuts of meat, and styles of cooking. They all have one thing in common: that delicious taste is reminiscent of an outdoor family gathering! It just doesn’t get any better.</p>
-         </div>
+         </div> -->
+
       </div>
    </section>
 
@@ -419,11 +435,14 @@
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         <div class="icon-image">
+
+         <div class="profile"></div>
+
+         <!-- <div class="icon-image">
             <a class="profile-edit" href="#user-settings-page"><img src="img/edit.png" class="icon-edit"></a>
-         </div>
-         <div class="card soft photo">
-            <div class="photo-circle"><!-- <img src="img/profile-photo.png"> --></div>
+         </div> -->
+         <!-- <div class="card soft photo">
+            <div class="photo-circle"> --> <!-- <img src="img/profile-photo.png"> --><!-- </div>
             <h1>Olivia</h1>
             <h6>If you want the rainbow, you gotta put up with the rain.</h6>
          </div>
@@ -445,11 +464,12 @@
                   <div class="flex-none"><img src="img/favorite.svg" class="profile-icon"></div>
                   <div class="flex-stretch"><h7>Si-fi Movies</h7></div>
                </li>
-         </div>
+            </ul>
+         </div> -->
 
 
 
-         <!-- <div class="half-button-center"><a href="#" class="js-logout">Logout</a></div> -->
+         
       </div>
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
@@ -563,27 +583,28 @@
    <section data-role="page" id="setting-page">
       <header data-role="header">
          <h1>Setting</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
-            <li class="flex-stretch"></li>
-            <li><a href="#" data-rel="back">Save</a></li>
-         </ul>
+         
       </header>
       <div data-role="main">
-         <form id="setting-password-form" data-ajax="false" style="padding:1em">
-            <div class="form-control">
-               <label for="setting-password-oldpassword" class="form-label">Old Password</label>
-               <input id="setting-password-oldpassword" type="password" class="form-input" data-role="none" placeholder="Type your old password">
-            </div>
-            <div class="form-control">
-               <label for="setting-password-password" class="form-label">New Password</label>
-               <input id="setting-password-password" type="password" class="form-input" data-role="none" placeholder="Type your new password">
-            </div>
-            <div class="form-control">
-               <label for="setting-password-confirm" class="form-label">Confirm Password</label>
-               <input id="setting-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
-            </div>
-         </form>
+      
+         <div class="card soft">
+            <a href="#user-profile-edit-page" class="card-row">
+               <div class="journal-mood-image"><img src="img/happy.png" class="list-mood"></div>
+               <div>
+                  <h8>Edit Profile</h8>
+               </div>
+            </a>
+         </div>
+         <div class="card soft">
+            <a href="#user-password-edit-page" class="card-row">
+               <div class="journal-mood-image"><img src="img/happy.png" class="list-mood"></div>
+               <div>
+                  <h8>Change Password</h8>
+               </div>
+            </a>
+         </div>
+         <div class="half-button-center"><a href="#" class="js-logout">Logout</a></div>
+             
       </div>
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">

@@ -8,18 +8,17 @@ $(()=>{
    // event delegation
    $(document)
 
-   //.on("pagecontainerbeforeshow",function(e,ui) {
+   .on("pagecontainerbeforeshow",function(e,ui) {
       // console.log(ui.toPage[0].id)
 
       // Page Routing
-      //switch(ui.toPage[0].id) {
-         //case "recent-page": RecentPage(); break;
-         //case "list-page": ListPage(); break;
-         //case "user-profile-page": UserProfilePage(); break;
-         // case "animal-profile-page": AnimalProfilePage(); break;
-         //case "journal-page": JournalPage(); break;
-      //}
-   //}) 
+      switch(ui.toPage[0].id) {
+         case "map-page": MapPage(); break;
+         case "list-page": ListPage(); break;
+         case "user-profile-page": UserProfilePage(); break;
+         case "journal-page": JournalPage(); break;
+      }
+   }) 
 
 
 
@@ -58,7 +57,7 @@ $(()=>{
      // sessionStorage.animalId = $(this).data("id");
      // $.mobile.navigate('#animal-profile-page');
    //})
-    .on("click",'.js-journal-jump',function(e){
+    .on("click",'.js-mood-jump',function(e){
       sessionStorage.moodId = $(this).data("id");
       $.mobile.navigate('#journal-page');
    })
