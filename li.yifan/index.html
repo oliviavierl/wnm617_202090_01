@@ -126,6 +126,9 @@
          <div class="modal" id="map-drawer">
             <!-- <div class="modal-back" data-deactivate="#recent-drawer"></div> -->
             <div class="modal-drawer left">
+               <div class="modal-close-floater top right" data-deactivate="#recent-drawer">
+                  <div class="btn-circle">&times;</div>
+               </div>
                <div class="modal-head">Title</div>
                <div class="modal-body">
                   Links and such
@@ -337,6 +340,18 @@
             <a href="#" data-rel="back">Back</a>
          </ul>
       </header> -->
+      <header data-role="header">
+         <h1>Journal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">
+               <img src="img/back.png" alt="" class="icon">
+            </a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#journal-edit-page">
+               <img src="img/edit.png" alt="" class="icon">
+            </a></li>
+         </ul>
+      </header>
       <div data-role="main">
          <!-- <div class="overscroll"> -->
             <div class="profile-top">
@@ -361,6 +376,23 @@
 
       </div>
    </section>
+
+   <section data-role="page" id="journal-edit-page">
+      <header data-role="header">
+         <h1>Edit Journal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="mood-edit-form" data-ajax="false" style="padding:1em">
+         </form>
+      </div>
+   </section>
+
+
 
    <section data-role="page" id="add-page">
       <div data-role="main">
@@ -535,7 +567,7 @@
       </header>
       <div data-role="main">
          <form id="user-edit-form" data-ajax="false" style="padding:1em">
-            <div class="form-control">
+            <!-- <div class="form-control">
                <label for="user-edit-username" class="form-label">Cell-phone</label>
                <input id="user-edit-username" type="text" class="form-input" data-role="none" placeholder="Type your user name" value="6282196375">
             </div>
@@ -546,7 +578,7 @@
             <div class="form-control">
                <label for="user-edit-email" class="form-label">Address</label>
                <input id="user-edit-email" type="text" class="form-input" data-role="none" placeholder="Type your user email" value="888 Ofarrell Street">
-            </div>
+            </div> -->
          </form>
       </div>
    </section>

@@ -35,16 +35,19 @@
   {
     id:'{{index(1)}}',
     user_id:'{{integer(1,10)}}',
+
+    mood:'{{random("happy", "smile", "normal","sad","angry")}}',
+    icon:function(){return 'img/'+this.mood+'.png';},
     
-    mood: function (tags) {
+    /*mood: function (tags) {
       var mood = ['img/happy.png', 'img/smile.png', 'img/normal.png','img/sad.png','img/angry.png'];
       return mood[tags.integer(0, mood.length - 1)];
-    },
+    },*/
     date: '{{date(new Date(2020, 0, 1), new Date(), "Thursday, MM-dd-YYYY")}}',
     address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
     title: '{{lorem(4, "words")}}',
     img:function(tags) {
-      return 'http://placehold.it/200x100'+
+      return 'http://placehold.it/200x100/'+
         tags.integer(700,999) + '/fff/?text=' + this.name;
     },
     description: '{{lorem(3,"sentences")}}',

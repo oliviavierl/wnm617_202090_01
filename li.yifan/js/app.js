@@ -16,7 +16,9 @@ $(()=>{
          case "map-page": MapPage(); break;
          case "list-page": ListPage(); break;
          case "user-profile-page": UserProfilePage(); break;
+         case "user-profile-edit-page": UserProfileEditPage(); break;
          case "journal-page": JournalPage(); break;
+         case "journal-edit-page": JournalEditPage(); break;
       }
    }) 
 

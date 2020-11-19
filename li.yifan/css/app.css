@@ -274,12 +274,12 @@ p {
 
 
 
-
+/* PAGE SPECIFICS */
 [data-role='main'] {
    background-position:center;
    background-size:cover;
 }
-/* PAGE SPECIFICS */
+
 #signin-page [data-role='main'] {
    display:flex;
    flex-direction:column;
@@ -316,7 +316,14 @@ p {
    width:100%;
    height:100%;
 }
-
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: text-bottom;
+}
+.ui-header .icon {
+  vertical-align:middle;
+}
 
 
 /* MODEL */
@@ -350,6 +357,8 @@ p {
 .modal.active .modal-back {
   pointer-events: initial;
 }
+
+
 
 
 
@@ -467,6 +476,18 @@ p {
    box-shadow:2px 2px 5px rgba(0,0,0,0.15);
 }
 
+.modal-close-floater {
+    position: absolute;
+}
+.modal-close-floater.right {
+  right:1em;
+}
+.modal-close-floater.top {
+  top:-1em;
+  transform: translateY(-100%);
+}
+
+
 
 /* Profile */
 .user-profile-image img {
@@ -547,6 +568,32 @@ p {
     overflow:auto;
 }
 
+
+.mood-profile {
+  padding:1em;
+}
+.mood-profile-image img {
+  width:30vw;
+  height:30vw;
+  object-fit:cover;
+}
+
+
+
+
+#recent-drawer .modal-drawer {
+  margin:1em;
+  width:calc(100% - 2em);
+}
+.mood-popup img {
+  width:80px;
+}
+.mood-popup h2 {
+  margin:0;
+}
+.mood-popup-description {
+  padding:1em;
+}
 /* From here is my personal design */
 
 /* CARD */
