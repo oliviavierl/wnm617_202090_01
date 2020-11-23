@@ -25,7 +25,7 @@ const checkUserProfileEditForm = () => {
    let name = $("#user-edit-name").val();
    let email = $("#user-edit-email").val();
    let phone = $("#user-edit-phone").val();
-   let addres = $("#user-edit-addres").val();
+   let addres = $("#user-edit-address").val();
    let favorite = $("#user-edit-favorite").val();
 
    query({

@@ -6,12 +6,12 @@ const ListPage = async() => {
    console.log(d);
 
    // let ddate = new Date(d.result[0].date_create);
-   // console.log(ddate.toLocaleString())
+   // console.log(ddate.toLocaleString()) 
 
    $("#list-page .moodlist").html(
       d.result.length ?
-         makeAnimalList(d.result) :
-         "You need to add some animals."
+         makeMoodList(d.result) :
+         "You need to add some journals."
    )
 }
 

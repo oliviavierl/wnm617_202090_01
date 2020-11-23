@@ -10,7 +10,7 @@ const makeMoodList = templater(o=>`
                <h8>${o.date}</h8>
                <div class="journal-row">
                   <div><img src="img/address.png" class="icon"></div>
-                  <div><h7>${o.address}</h7></div>
+                  <div class="moodlist-address"><h7>${o.address}</h7></div>
                </div>
                     
             </div>
@@ -109,11 +109,43 @@ ${FormControl({
 })}
 ${FormControl({
    namespace:'user-edit',
+   name:'qoute',
+   displayname:'Quote',
+   type:'text',
+   placeholder:'Type your quote',
+   value:o.quote
+})}
+${FormControl({
+   namespace:'user-edit',
+   name:'phone',
+   displayname:'Phone Number',
+   type:'text',
+   placeholder:'Type your phone number',
+   value:o.phone
+})}
+${FormControl({
+   namespace:'user-edit',
    name:'email',
    displayname:'Email',
    type:'text',
    placeholder:'Type your email',
    value:o.email
+})}
+${FormControl({
+   namespace:'user-edit',
+   name:'address',
+   displayname:'Address',
+   type:'text',
+   placeholder:'Type your address',
+   value:o.adderss
+})}
+${FormControl({
+   namespace:'user-edit',
+   name:'favorite',
+   displayname:'Favorite',
+   type:'text',
+   placeholder:'Type your favorite thing',
+   value:o.favorite
 })}
 `;
 
@@ -138,6 +170,14 @@ ${FormControl({
    displayname:'Title',
    type:'text',
    placeholder:'Type the title',
+   value:o.name
+})}
+${FormControl({
+   namespace:'mood-edit',
+   name:'description',
+   displayname:'Description',
+   type:'text',
+   placeholder:'Type the journal description',
    value:o.name
 })}
 
