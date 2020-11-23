@@ -5,12 +5,16 @@ function makeConn() {
    include_once "auth.php";
    try {
       $conn = new PDO(...Auth());
-      $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-      return $conn;
-   } catch (PDOException $e) {
-      die('{"error":"Connection Error: '.$e->getMessage().'"}');
+      $conn->setAttribute(
+         PDO::ATTR_ERRMODE,
+         PDO::ERRMODE_EXCEPTION
+      );
+   } catch(PDOException $e) {
+      die('{"error":"'.$e->getMessage().'"}');
    }
+   return $conn;
 }
+
 
 function fetchAll($r) {
    $a = [];
@@ -56,7 +60,7 @@ function makeStatement($data) {
 
 
       case "user_by_id":
-         return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+         return makeQuery($c,"SELECT id,name,username,email,quote,img,favorite,date_create FROM `track_users` WHERE `id`=?",$p);
       case "mood_by_id":
          return makeQuery($c,"SELECT * FROM `track_moods` WHERE `id`=?",$p);
       case "location_by_id":
@@ -84,6 +88,86 @@ function makeStatement($data) {
             GROUP BY l.mood_id
             ",$p);
 
+
+/* ----- CRUD ------ */
+
+      // INSERTS
+
+      case "insert_user":
+
+         // Check for duplicate users
+         $r = makeQuery("SELECT * FROM `track_users` WHERE `username`=? OR `email`=?",[$p[0],$p[1]]);
+         if(count($r['result'])) return ["error"=>"Username or Email already exists"];
+
+         // Create new user
+         $r = makeQuery($c,"INSERT INTO
+            `track_users`
+            (`username`,`email`,`quote`,`password`,`img`,`favorite`,`date_create`)
+            VALUES
+            (?, ?, ?, md5(?), 'https://via.placeholder.com/400?text=USER', ?, NOW())
+            ",$p);
+         return ["id"=>$c->lastInsertId()];
+
+
+      case "insert_mood":
+         $r = makeQuery($c,"INSERT INTO
+            `track_moods`
+            (`user_id`,`name`,`date`,`address`,`title`,`img`,`description`,`date_create`)
+            VALUES
+            (?, ?, ?, ?, ?, 'https://via.placeholder.com/400?text=MOOD', ?, NOW())
+            ",$p);
+         return ["id"=>$c->lastInsertId()];
+
+
+      case "insert_location":
+         $r = makeQuery($c,"INSERT INTO
+            `track_locations`
+            (`mood_id`,`lat`,`lng`,`description`,`photo`,`icon`,`date_create`)
+            VALUES
+            (?, ?, ?, ?, 'https://via.placeholder.com/400?text=Photo', 'https://via.placeholder.com/100?text=Icon', NOW())
+            ",$p);
+         return [
+            "r"=>$r,
+            "p"=>$p,
+            "id"=>$c->lastInsertId()];
+
+
+
+      // UPDATE
+
+      case "update_user":
+         $r = makeQuery($c,"UPDATE
+            `track_users`
+            SET
+            `username` = ?,
+            `name` = ?,
+            `email` = ?
+            `quote` = ?
+            `favorite` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+      case "update_mood":
+         $r = makeQuery($c,"UPDATE
+            `track_moods`
+            SET
+            `name` = ?,
+            `title` = ?,
+            `adderss` = ?,
+            `description` = ?
+            WHERE `id`=?
+             ",$p,false);
+         return ["result"=>"success"];
+
+      // DELETE
+
+
+      case "delete_mood":
+         return makeQuery($c,"DELETE FROM `track_moods` WHERE `id`=?",$p,false);
+
+      case "delete_location":
+         return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p,false);
 
 
       default: return ["error"=>"No Matched Type"];

@@ -1,3 +1,4 @@
+
 const makeMoodList = templater(o=>`
    <div class="moodlist-item js-mood-jump" data-id="${o.id}">
 

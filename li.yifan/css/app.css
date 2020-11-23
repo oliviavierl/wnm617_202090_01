@@ -466,6 +466,7 @@ p {
 
 /* CIRCLE */
 .btn-circle {
+  display: inline-block;
    background-color:var(--color-white);
    width:3rem;
    height:3rem;

@@ -15,10 +15,14 @@ $(()=>{
       switch(ui.toPage[0].id) {
          case "map-page": MapPage(); break;
          case "list-page": ListPage(); break;
+
          case "user-profile-page": UserProfilePage(); break;
          case "user-profile-edit-page": UserProfileEditPage(); break;
+
          case "journal-page": JournalPage(); break;
          case "journal-edit-page": JournalEditPage(); break;
+
+         case "location-add-page": LocationAddPage(); break;
       }
    }) 
 
@@ -43,6 +47,26 @@ $(()=>{
       checkSigninForm();
    })
 
+   .on("submit","#signup-form",function(e){
+      e.preventDefault();
+      checkSignupForm();
+   })
+
+   // FORM SUBMIT CLICKS
+
+   .on("click",'.js-user-edit',function(e){
+      checkUserProfileEditForm();
+   })
+   .on("click",'.js-mood-add',function(e){
+      checkMoodAddForm();
+   })
+   .on("click",'.js-mood-edit',function(e){
+      checkMoodEditorm();
+   })
+   .on("click",'.js-location-add',function(e){
+      checkLocationAddForm();
+   })
+
 
 
 
@@ -63,6 +87,10 @@ $(()=>{
       sessionStorage.moodId = $(this).data("id");
       $.mobile.navigate('#journal-page');
    })
+    .on("click",'.js-mood-delete',function(e){
+      checkMoodDelete($(this).data("id"));
+   })
+
 
 
 
