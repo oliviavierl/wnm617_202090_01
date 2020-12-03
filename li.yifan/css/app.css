@@ -294,7 +294,7 @@ p {
 }
 
 #map-page [data-role='main'] {
-   background-image:url('../img/map_main.jpg');
+   /* background-image:url('../img/map_main.jpg'); */
 }
 
 #list-page [data-role='main'],

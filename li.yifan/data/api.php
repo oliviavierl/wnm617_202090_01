@@ -60,7 +60,7 @@ function makeStatement($data) {
 
 
       case "user_by_id":
-         return makeQuery($c,"SELECT id,name,username,email,quote,img,favorite,date_create FROM `track_users` WHERE `id`=?",$p);
+         return makeQuery($c,"SELECT id,name,username,email,quote,phone,address,img,favorite,date_create FROM `track_users` WHERE `id`=?",$p);
       case "mood_by_id":
          return makeQuery($c,"SELECT * FROM `track_moods` WHERE `id`=?",$p);
       case "location_by_id":
@@ -154,7 +154,7 @@ function makeStatement($data) {
             SET
             `name` = ?,
             `title` = ?,
-            `adderss` = ?,
+            `address` = ?,
             `description` = ?
             WHERE `id`=?
              ",$p,false);

@@ -30,6 +30,7 @@ const makeMarkers = (map_el,map_locs) => {
          position:o,
          map:map
       }
+      console.log(o)
       if(o.icon) pos.icon = {
             url: o.icon,
             scaledSize: {
