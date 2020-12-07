@@ -90,7 +90,7 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
    </div>`;
 }
 
-const makeUserProfileUpdateForm = o => `
+const makeUserEditForm = o => `
 ${FormControl({
    namespace:'user-edit',
    name:'username',
@@ -152,7 +152,7 @@ ${FormControl({
 
 
 
-const makeJournalUpdateForm = o => `
+const makeJournalEditForm = o => `
 <!--<div class="user-profile-image">
    <img src="${o.img}">
 </div>-->
@@ -186,5 +186,40 @@ ${FormControl({
    <textarea id="mood-edit-description" class="form-input" data-role="none" placeholder="Type a description" style="height:6em">${o.description}</textarea>
 </div>
 `;
+
+
+const drawJounalList = (a,empty_phrase="No jounals yet, you should add some.") => {
+   $("#list-page .journallist").html(
+      a.length ? makeJounalList(a) : empty_phrase
+   )
+}
+
+
+
+const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+const filterList = (moods,type) => {
+   let a = [...(new Set(moods.map(o=>o[type])))];
+   return templater(o=>`<div class="filter" data-field="${type}" data-value="${o}">${capitalize(o)}</div>`)(a);
+}
+
+const makeFilterList = (journals) => {
+   return `
+   <div class="filter" data-field="type" data-value="">All</div>
+   |
+   ${filterList(moods,'type')}
+   `
+}
+
+
+
+
+
+const makeUploaderImage = ({namespace,folder,name}) => {
+   console.log(namespace,folder,name)
+   $(`#${namespace}-image`).val(folder+name);
+   $(`#${namespace}-page .image-uploader`)
+      .css({'background-image':`url(${folder+name}`})
+}
 
 // My deesign below

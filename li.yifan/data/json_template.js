@@ -47,7 +47,7 @@
     address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
     title: '{{lorem(4, "words")}}',
     img:function(tags) {
-      return 'http://placehold.it/200x100/'+
+      return 'http://via.placehold.com/400/'+
         tags.integer(700,999) + '/fff/?text=' + this.name;
     },
     description: '{{lorem(3,"sentences")}}',

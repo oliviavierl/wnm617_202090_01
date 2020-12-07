@@ -8,6 +8,7 @@ const makeMap = async(target, center={lat:37.786231,lng:-122.399310}) => {
          "map": new google.maps.Map(map_el[0], {
             center: center,
             zoom: 12,
+            styles:mapStyles,
             disableDefaultUI: true
          }),
          "infoWindow": new google.maps.InfoWindow({content:''})
@@ -17,7 +18,7 @@ const makeMap = async(target, center={lat:37.786231,lng:-122.399310}) => {
 }
 
 
-const makeMarkers = (map_el,map_locs) => {
+const makeMarkers = (map_el,map_locs,setbounds=true) => {
    let map = map_el.data("map");
    let markers = map_el.data("markers");
 
@@ -43,9 +44,7 @@ const makeMarkers = (map_el,map_locs) => {
    });
 
    map_el.data("markers",markers);
-   setTimeout(()=>setMapBounds(map_el,map_locs),150);
-}
-
+   if(setbounds) setTimeout(()=>setMapBounds(map_el,map_locs),150);
 
 
 

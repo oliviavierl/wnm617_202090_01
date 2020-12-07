@@ -8,11 +8,17 @@ const ListPage = async() => {
    // let ddate = new Date(d.result[0].date_create);
    // console.log(ddate.toLocaleString()) 
 
-   $("#list-page .moodlist").html(
-      d.result.length ?
-         makeMoodList(d.result) :
-         "You need to add some journals."
-   )
+
+    $("#list-page .filter-list").html(makeFilterList(d.result));
+
+   drawMoodList(d.result);
+
+
+   // $("#list-page .moodlist").html(
+      // d.result.length ?
+         // makeMoodList(d.result) :
+         // "You need to add some journals."
+   // )
 }
 
 
@@ -73,7 +79,7 @@ const UserProfilePage = async() => {
 }
 
 
-const UserProfileEditPage = async() => {
+const UserEditPage = async() => {
    let d = await query({type:'user_by_id',params:[sessionStorage.userId]});
 
    console.log(d);
@@ -81,6 +87,20 @@ const UserProfileEditPage = async() => {
    $("#user-edit-form")
       .html(makeUserProfileUpdateForm(d.result[0]))
 }
+
+const UserUploadPage = async() => {
+   query({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   }).then(d=>{
+      makeUploaderImage({
+         namespace:'user-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   })
+}
+
 
 
 const JournalPage = async() => {

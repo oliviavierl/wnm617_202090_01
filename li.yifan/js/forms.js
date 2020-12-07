@@ -20,7 +20,7 @@ const checkSignupForm = () => {
    }
 }
 
-const checkUserProfileEditForm = () => {
+const checkUserEditForm = () => {
    let username = $("#user-edit-username").val();
    let name = $("#user-edit-name").val();
    let email = $("#user-edit-email").val();
@@ -107,6 +107,70 @@ const checkMoodDelete = id => {
    query({
       type:'delete_mood',
       params:[id]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
+}
+
+
+
+const checkSearchForm = async() => {
+   let s = $("#list-search-input").val()
+   console.log(s);
+
+   let r = await query({
+      type:"search_moods",
+      params:[s,sessionStorage.userId]
+   })
+
+   drawMoodList(r.result,"Search produced no results.");
+
+   console.log(r)
+}
+
+
+
+const checkListFilter = async ({field,value}) => {
+   let r = value=="" ?
+      await query({
+         type:'moods_by_user_id',
+         params:[sessionStorage.userId]
+      }) :
+      await query({
+         type:'filter_moods',
+         params:[field,value,sessionStorage.userId]
+      });
+
+   drawMoodList(r.result,"Search produced no results.");
+}
+
+
+
+
+
+
+
+
+const checkUpload = file => {
+   let fd = new FormData();
+   fd.append("image",file);
+
+   return fetch('data/api.php',{
+      method:'POST',
+      body:fd
+   }).then(d=>d.json());
+}
+
+const checkUserUploadForm = () => {
+   let upload = $("#user-upload-image").val()
+   if(upload=="") return;
+
+   query({
+      type:'update_user_image',
+      params:[upload,sessionStorage.userId]
    }).then(d=>{
       if(d.error) {
          throw d.error;

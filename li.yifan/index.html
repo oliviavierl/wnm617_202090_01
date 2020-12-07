@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app capable" content="yes">
+
+   <link rel="apple-touch-icon" href="./site_logo.png">
+   <link rel="icon" href="./site_logo.png">
+
+
+
+
+
+
    <link rel="shortcut icon" href="img/happy.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mood Tracker</title>
@@ -186,9 +198,24 @@
          <h1>Journals</h1>
          <ul>
             <li class="flex-stretch"></li>
-            <li><a href="#" data-activate="#list-add-animal">+</a></li>
+            <li><a href="#" data-activate="#list-add-journal">+</a></li>
          </ul>
+
+         <form class="hotdog" id="list-search-form" data-ajax="false">
+            <input type="search" id="list-search-input" data-role="none" placeholder="Search">
+         </form>
       </header>
+      <header data-role="header">
+         <div class="filter-list">
+            <!-- <div class="filter" data-field="type" data-value="">All</div>
+            <div class="filter" data-field="type" data-value="cat">Cat</div>
+            <div class="filter" data-field="type" data-value="dog">Dog</div>
+            <div class="filter" data-field="type" data-value="horse">Horse</div> -->
+         </div>
+      </header>
+      
+       
+         
       <div data-role="main">
          <div class="calendar">
             <!-- <div class="calendar card soft"> -->
@@ -212,7 +239,9 @@
          <div class="overscroll" style="padding-bottom: 6em;">
 
             <div class="moodlist"></div>
-
+            <div class="floater right bottom"><a class="btn-circle" href="#mood-add-page">&plus;</a></div>
+     
+     
              <!-- <div class="animallist">
                <div class="animallist-item">
                   <div class="animallist-icon">
@@ -427,6 +456,42 @@
       </div>
    </section>
 
+   <!-- <section data-role="page" id="journal-add-page">
+      <header data-role="header">
+         <h1>journal Info</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-journal-add">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <div class="overscroll">
+            <form id="journal-add-form" data-ajax="false" style="padding:1em">
+            
+               <input type="hidden" id="journal-add-destination" value="#list-page">
+            
+               <div class="form-control">
+                  <label for="journal-add-name" class="form-label">Name</label>
+                  <input id="journal-add-name" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="journal-add-type" class="form-label">Type</label>
+                  <input id="journal-add-type" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="journal-add-breed" class="form-label">Breed</label>
+                  <input id="journal-add-breed" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="journal-add-description" class="form-label">Description</label>
+                  <textarea id="journal-add-description" class="form-input" data-role="none"></textarea>
+               </div>
+            </form>
+         </div>
+      </div>
+   </section> -->
+
 
 
    <section data-role="page" id="add-page">
@@ -591,7 +656,7 @@
       </div>
    </section>
 
-   <section data-role="page" id="user-profile-edit-page">
+   <section data-role="page" id="user-edit-page">
       <header data-role="header">
          <h1>User Info</h1>
          <ul>
@@ -618,7 +683,7 @@
       </div>
    </section>
 
-   <section data-role="page" id="user-password-edit-page">
+   <section data-role="page" id="user-password-page">
       <header data-role="header">
          <h1>Change Password</h1>
          <ul>
@@ -642,6 +707,27 @@
                <input id="user-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
             </div>
          </form>
+      </div>
+   </section>
+
+
+   <section data-role="page" id="user-upload-page">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-user-upload">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="user-upload-form" data-ajax="false">
+            <input type="hidden" id="user-upload-image">
+            <label class="image-uploader full">
+               <input type="file" data-role="none" id="user-upload-input">
+            </label>
+         </form>
+         <label for="user-upload-input" class="form-button">Choose Image</label>
       </div>
    </section>
 

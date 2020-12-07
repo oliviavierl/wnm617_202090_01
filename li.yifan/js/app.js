@@ -17,7 +17,8 @@ $(()=>{
          case "list-page": ListPage(); break;
 
          case "user-profile-page": UserProfilePage(); break;
-         case "user-profile-edit-page": UserProfileEditPage(); break;
+         case "user-edit-page": UserEditPage(); break;
+         case "user-upload-page": UserUploadPage(); break;
 
          case "journal-page": JournalPage(); break;
          case "journal-edit-page": JournalEditPage(); break;
@@ -52,6 +53,12 @@ $(()=>{
       checkSignupForm();
    })
 
+   .on("submit","#list-search-form",function(e){
+      e.preventDefault();
+      checkSearchForm();
+   })
+
+
    // FORM SUBMIT CLICKS
 
    .on("click",'.js-user-edit',function(e){
@@ -66,8 +73,25 @@ $(()=>{
    .on("click",'.js-location-add',function(e){
       checkLocationAddForm();
    })
+    .on("click",'.js-user-upload',function(e){
+      checkUserUploadForm();
+   })
 
 
+   .on("click",".filter",function(){
+      checkListFilter($(this).data());
+   })
+   .on("change",".image-uploader input",function(){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         makeUploaderImage({
+            namespace:'user-upload',
+            folder:'uploads/',
+            name:d.result
+         })
+      })
+   })
 
 
 
