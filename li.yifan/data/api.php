@@ -139,9 +139,9 @@ function makeStatement($data) {
          // Create new user
          $r = makeQuery($c,"INSERT INTO
             `track_users`
-            (`username`,`email`,`quote`,`password`,`img`,`favorite`,`date_create`)
+            ('name',`username`,`email`,`quote`,`password`,`img`,`favorite`,`date_create`)
             VALUES
-            (?, ?, ?, md5(?), 'https://via.placeholder.com/400?text=USER', ?, NOW())
+            ('', ?, ?, ?, md5(?), 'https://via.placeholder.com/400?text=USER', ?, NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
 
@@ -202,7 +202,8 @@ function makeStatement($data) {
             `name` = ?,
             `title` = ?,
             `address` = ?,
-            `description` = ?
+            `description` = ?,
+            'img' = ?
             WHERE `id`=?
              ",$p,false);
          return ["result"=>"success"];

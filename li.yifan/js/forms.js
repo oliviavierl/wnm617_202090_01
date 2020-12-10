@@ -45,6 +45,7 @@ const checkMoodAddForm = () => {
    let name = $("#mood-add-name").val();
    let title = $("#mood-add-title").val();
    let description = $("#mood-add-description").val();
+   let image = $("#mood-add-image").val();
 
    query({
       type:'insert_mood',
@@ -67,6 +68,7 @@ const checkMoodEditForm = () => {
    let name = $("#mood-edit-name").val();
    let title = $("#mood-edit-title").val();
    let description = $("#mood-edit-description").val();
+   let image = $("#mood-edit-image").val();
 
    query({
       type:'update_mood',

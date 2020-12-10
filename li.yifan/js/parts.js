@@ -153,6 +153,10 @@ ${FormControl({
 
 
 const makeJournalEditForm = o => `
+<input type="hidden" id="mood-edit-image" value="${o.img}">
+<label class="image-uploader thumbnail picked" style="background-image:url('${o.img}')">
+   <input type="file" data-role="none" id="mood-edit-input">
+</label>
 
 ${FormControl({
    namespace:'mood-edit',
@@ -213,11 +217,10 @@ const makeFilterList = (journals) => {
 
 
 
-const makeUploaderImage = ({namespace,folder,name}) => {
-   console.log(namespace,folder,name)
-   $(`#${namespace}-image`).val(folder+name);
-   $(`#${namespace}-page .image-uploader`)
-      .css({'background-image':`url(${folder+name}`})
+const makeUploaderImage = (el, name, folder='') => {
+
+   $(el).parent().css({'background-image':`url(${folder+name}`}).addClass('picked')
+      .prev().val(folder+name);
 }
 
 // My deesign below
