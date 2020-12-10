@@ -316,7 +316,7 @@ p {
    background-color: #1a2b3c;
 }
 
-#map-page [data-role='main'] {
+#recent-page [data-role='main'] {
    /* background-image:url('../img/map_main.jpg'); */
 }
 
@@ -327,7 +327,8 @@ p {
 #user-profile-edit-page [data-role='main'],
 #user-password-edit-page [data-role='main'],
 #setting-page [data-role='main'],
-#journal-page [data-role='main'] {
+#journal-page [data-role='main'],
+#journal-edit-page [data-role='main']{
    background-color: #1a2b3c;
 }
 
@@ -347,6 +348,7 @@ p {
 .ui-header .icon {
   vertical-align:middle;
 }
+
 
 
 /* MODEL */
@@ -792,7 +794,7 @@ img.mood {
 /* PROFILE */
 
 .photo-circle {
-   background-image: url(../img/profile-photo.png);
+   /* background-image: url(../img/profile-photo.png); */
    width:7rem;
    height:7rem;
    line-height:7rem;
@@ -806,8 +808,10 @@ img.mood {
 }
 
 .photo-circle img {
-  width: auto;
-  display: cover;
+    width: 7em;
+    height: auto;
+    text-align: center;
+    border-radius: 50%;
 }
 
 .profile-list {
@@ -839,7 +843,7 @@ img.mood {
 }
 
 
-/* Map Page */
+/* Recent Page */
 
 .hotdog {
   display: flex;
@@ -951,4 +955,4 @@ li.date-active {
 }
 
 
-????????
+

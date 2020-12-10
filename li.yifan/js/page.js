@@ -11,7 +11,7 @@ const ListPage = async() => {
 
     $("#list-page .filter-list").html(makeFilterList(d.result));
 
-   drawMoodList(d.result);
+   drawJournalList(d.result);
 
 
    // $("#list-page .moodlist").html(
@@ -26,7 +26,7 @@ const ListPage = async() => {
 
 
 
-const MapPage = async() => {
+const RecentPage = async() => {
    let d = await query({type:'recent_locations',params:[sessionStorage.userId]});
 
    // makeMap("#map-page .map");
@@ -39,7 +39,7 @@ const MapPage = async() => {
       return r;
    },[]);
 
-   let map_el = await makeMap("#map-page .map");
+   let map_el = await makeMap("#recent-page .map");
 
    makeMarkers(map_el,valid_moods);
 
@@ -57,7 +57,7 @@ const MapPage = async() => {
          map_el.data("infoWindow")
             .open(map_el.data("map"),o);
          map_el.data("infoWindow")
-            .setContent(makeAnimalPopup(valid_animals[i]));
+            .setContent(makeMoodPopup(valid_moods[i]));
          
 
          /*
@@ -85,7 +85,7 @@ const UserEditPage = async() => {
    console.log(d);
 
    $("#user-edit-form")
-      .html(makeUserProfileUpdateForm(d.result[0]))
+      .html(makeUserEditForm(d.result[0]))
 }
 
 const UserUploadPage = async() => {
@@ -130,7 +130,7 @@ const JournalEditPage = async() => {
    console.log(d);
 
    $("#mood-edit-form")
-      .html(makeJournalUpdateForm(d.result[0]))
+      .html(makeJournalEditForm(d.result[0]))
 }
 
 

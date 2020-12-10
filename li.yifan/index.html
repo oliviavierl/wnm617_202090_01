@@ -39,7 +39,7 @@
    <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
 <body>
-
+ 
 
    <section data-role="page" id="signin-page">
       <div data-role="main">
@@ -122,12 +122,12 @@
    </section>
 
 
-   <section data-role="page" id="map-page">
+   <section data-role="page" id="recent-page">
       <div data-role="main">
          <div class="map"></div>
 
          <div class="floater right top" style="display: none;">
-            <div class="btn-circle" data-toggle="#map-drawer">&plus;</div>
+            <div class="btn-circle" data-toggle="#recent-drawer">&plus;</div>
          </div>
 
          <div class="hotdog">
@@ -136,7 +136,7 @@
             <!--<span class="ydr"><img src="img/clear.png" class="search-icon"></span>
          </div> -->
 
-         <div class="modal" id="map-drawer">
+         <div class="modal" id="recent-drawer">
             <!-- <div class="modal-back" data-deactivate="#recent-drawer"></div> -->
             <div class="modal-drawer left">
                <div class="modal-close-floater top right" data-deactivate="#recent-drawer">
@@ -157,7 +157,7 @@
        <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
             <li class="display-flex flex-align-center flex-justify-center">
-               <a href="#map-page">
+               <a href="#recent-page">
                   <div class="icon-image"><img src="img/map-active.png" class="icon"></div>
                   <div class="icon-label-active">Map</div>
                </a>
@@ -204,15 +204,15 @@
          <form class="hotdog" id="list-search-form" data-ajax="false">
             <input type="search" id="list-search-input" data-role="none" placeholder="Search">
          </form>
-      </header>
-      <header data-role="header">
+   
+      
          <div class="filter-list">
             <!-- <div class="filter" data-field="type" data-value="">All</div>
             <div class="filter" data-field="type" data-value="cat">Cat</div>
             <div class="filter" data-field="type" data-value="dog">Dog</div>
             <div class="filter" data-field="type" data-value="horse">Horse</div> -->
          </div>
-      </header>
+       </header>
       
        
          
@@ -309,7 +309,7 @@
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
             <li class="display-flex flex-align-center flex-justify-center">
-               <a href="#map-page">
+               <a href="#recent-page">
                   <div class="icon-image"><img src="img/map.png" class="icon"></div>
                   <div class="icon-label">Map</div>
                </a>
@@ -606,7 +606,7 @@
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
             <li class="display-flex flex-align-center flex-justify-center">
-               <a href="#map-page">
+               <a href="#recent-page">
                   <div class="icon-image"><img src="img/map.png" class="icon"></div>
                   <div class="icon-label">Map</div>
                </a>
@@ -640,7 +640,7 @@
       </footer>
    </section>
 
-    <section data-role="page" id="user-settings-page">
+    <!-- <section data-role="page" id="user-settings-page">
       <header data-role="header">
          <h1>User Settings</h1>
          <ul>
@@ -654,7 +654,7 @@
             <li><a href="#" class="js-logout">Logout</a></li>
          </ul>
       </div>
-   </section>
+   </section> -->
 
    <section data-role="page" id="user-edit-page">
       <header data-role="header">
@@ -727,8 +727,9 @@
                <input type="file" data-role="none" id="user-upload-input">
             </label>
          </form>
-         <label for="user-upload-input" class="form-button">Choose Image</label>
+         
       </div>
+      <label for="user-upload-input" class="half-button-center">Choose Image</label>
    </section>
 
 
@@ -739,9 +740,17 @@
          
       </header>
       <div data-role="main">
+         <div class="card soft">
+            <a href="#user-upload-page" class="card-row">
+               <div class="journal-mood-image"><img src="img/photo-edit.png" class="list-mood"></div>
+               <div>
+                  <h8>Change Photo</h8>
+               </div>
+            </a>
+         </div>
       
          <div class="card soft">
-            <a href="#user-profile-edit-page" class="card-row">
+            <a href="#user-edit-page" class="card-row">
                <div class="journal-mood-image"><img src="img/profile-edit.png" class="list-mood"></div>
                <div>
                   <h8>Edit Profile</h8>
@@ -749,7 +758,7 @@
             </a>
          </div>
          <div class="card soft">
-            <a href="#user-password-edit-page" class="card-row">
+            <a href="#user-password-page" class="card-row">
                <div class="journal-mood-image"><img src="img/key.png" class="list-mood"></div>
                <div>
                   <h8>Change Password</h8>
@@ -762,7 +771,7 @@
       <footer data-role="footer" style="position: absolute; bottom: 0; width: 100%">
          <ul style="height: 100%;">
             <li class="display-flex flex-align-center flex-justify-center">
-               <a href="#map-page">
+               <a href="#recent-page">
                   <div class="icon-image"><img src="img/map.png" class="icon"></div>
                   <div class="icon-label">Map</div>
                </a>

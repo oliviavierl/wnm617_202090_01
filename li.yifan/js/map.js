@@ -8,7 +8,7 @@ const makeMap = async(target, center={lat:37.786231,lng:-122.399310}) => {
          "map": new google.maps.Map(map_el[0], {
             center: center,
             zoom: 12,
-            styles:mapStyles,
+            // styles: mapStyles,
             disableDefaultUI: true
          }),
          "infoWindow": new google.maps.InfoWindow({content:''})
@@ -393,8 +393,7 @@ const mapStyles = [
     {
         "featureType": "road"
     },
-    {},
     {
         "featureType": "road.highway"
     }
-];
+]

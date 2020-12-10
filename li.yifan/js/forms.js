@@ -25,7 +25,7 @@ const checkUserEditForm = () => {
    let name = $("#user-edit-name").val();
    let email = $("#user-edit-email").val();
    let phone = $("#user-edit-phone").val();
-   let addres = $("#user-edit-address").val();
+   let address = $("#user-edit-address").val();
    let favorite = $("#user-edit-favorite").val();
 
    query({
@@ -126,7 +126,7 @@ const checkSearchForm = async() => {
       params:[s,sessionStorage.userId]
    })
 
-   drawMoodList(r.result,"Search produced no results.");
+   drawJournalList(r.result,"Search produced no results.");
 
    console.log(r)
 }
@@ -144,7 +144,7 @@ const checkListFilter = async ({field,value}) => {
          params:[field,value,sessionStorage.userId]
       });
 
-   drawMoodList(r.result,"Search produced no results.");
+   drawJournalList(r.result,"Search produced no results.");
 }
 
 

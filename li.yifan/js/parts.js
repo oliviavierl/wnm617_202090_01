@@ -4,13 +4,13 @@ const makeMoodList = templater(o=>`
 
       <div class="card soft">
          <a href="#journal-page" class="card-row">
-            <div class="journal-mood-image"><img src="${o.mood}" class="list-mood"></div>
+            <div class="journal-mood-image"><img src="${o.icon}" class="list-mood"></div>
             <div>
                      
-               <h8>${o.date}</h8>
+               <h8>${o.week}, ${o.date}</h8>
                <div class="journal-row">
                   <div><img src="img/address.png" class="icon"></div>
-                  <div class="moodlist-address"><h7>${o.address}</h7></div>
+                  <div class="moodlist-address"><h7>${o.location}</h7></div>
                </div>
                     
             </div>
@@ -24,7 +24,7 @@ const makeMoodList = templater(o=>`
 
 const makeUserProfile = templater(o=>`
    <div class="card soft photo">
-      <div class="photo-circle"></div>
+      <div class="photo-circle"><img src="${o.img}" alt=""></div>
       <h1>${o.name}</h1>
       <h6>${o.quote}</h6>
    </div>
@@ -32,7 +32,7 @@ const makeUserProfile = templater(o=>`
       <ul  class="profile-list">
          <li class="row">
             <div class="flex-none"><img src="img/phone.png" class="profile-icon"></div>
-            <div class="flex-stretch"><h7>(628)219-6375</h7></div>
+            <div class="flex-stretch"><h7>${o.phone}</h7></div>
          </li>
          <li class="row">
             <div class="flex-none"><img src="img/mail.png" class="profile-icon"></div>
@@ -40,7 +40,7 @@ const makeUserProfile = templater(o=>`
          </li>
          <li class="row">
             <div class="flex-none"><img src="img/address.png" class="profile-icon"></div>
-            <div class="flex-stretch"><h7>888 Ofarell Street, 94109</h7></div>
+            <div class="flex-stretch"><h7>${o.address}</h7></div>
          </li>
          <li class="row">
             <div class="flex-none"><img src="img/favorite.svg" class="profile-icon"></div>
@@ -52,9 +52,9 @@ const makeUserProfile = templater(o=>`
 
 const makeJournal = templater(o=>`
    
-   <h4 class="journal-title">${o.date}</h4>
+   <h4 class="journal-title">${o.week}, ${o.date}</h4>
    <div class="journal-row">
-      <img src="${o.mood}" class="list-mood" style="margin-left: 3em;">
+      <img src="${o.icon}" class="list-mood" style="margin-left: 3em;">
       <h8>${o.title}</h8>
    </div>
       <div class="overscroll" style="padding-bottom: 6em;">
@@ -68,12 +68,12 @@ const makeMoodPopup = o => `
 <div class="display-flex mood-popup" style="flex-wrap:wrap">
    <div class="flex-none">
       <div class="mood-image">
-         <img src="${o.mood}" alt="">
+         <img src="${o.icon}" alt="">
       </div>
    </div>
    <div class="flex-none mood-popup-description">
       <div>${o.title}</div>
-      <div>${o.address}</div>
+      <div>${o.location}</div>
    </div>
    <div class="form-button js-mood-jump" data-id="${o.mood_id}" style="width:100%">Visit</div>
 </div>
@@ -137,7 +137,7 @@ ${FormControl({
    displayname:'Address',
    type:'text',
    placeholder:'Type your address',
-   value:o.adderss
+   value:o.address
 })}
 ${FormControl({
    namespace:'user-edit',
@@ -153,16 +153,14 @@ ${FormControl({
 
 
 const makeJournalEditForm = o => `
-<!--<div class="user-profile-image">
-   <img src="${o.img}">
-</div>-->
+
 ${FormControl({
    namespace:'mood-edit',
-   name:'date',
-   displayname:'Date',
+   name:'mood',
+   displayname:'Mood',
    type:'text',
-   placeholder:'Type the date',
-   value:o.name
+   placeholder:'Choose the mood',
+   value:o.mood
 })}
 ${FormControl({
    namespace:'mood-edit',
@@ -170,7 +168,7 @@ ${FormControl({
    displayname:'Title',
    type:'text',
    placeholder:'Type the title',
-   value:o.name
+   value:o.title
 })}
 ${FormControl({
    namespace:'mood-edit',
@@ -178,7 +176,7 @@ ${FormControl({
    displayname:'Description',
    type:'text',
    placeholder:'Type the journal description',
-   value:o.name
+   value:o.description
 })}
 
 <div class="form-control">
@@ -198,16 +196,16 @@ const drawJounalList = (a,empty_phrase="No jounals yet, you should add some.") =
 
 const capitalize = s => s[0].toUpperCase()+s.substr(1);
 
-const filterList = (moods,type) => {
-   let a = [...(new Set(moods.map(o=>o[type])))];
-   return templater(o=>`<div class="filter" data-field="${type}" data-value="${o}">${capitalize(o)}</div>`)(a);
+const filterList = (journals,mood) => {
+   let a = [...(new Set(journals.map(o=>o[mood])))];
+   return templater(o=>`<div class="filter" data-field="${mood}" data-value="${o}">${capitalize(o)}</div>`)(a);
 }
 
 const makeFilterList = (journals) => {
    return `
-   <div class="filter" data-field="type" data-value="">All</div>
+   <div class="filter" data-field="mood" data-value="">All</div>
    |
-   ${filterList(moods,'type')}
+   ${filterList(journals,'mood')}
    `
 }
 
