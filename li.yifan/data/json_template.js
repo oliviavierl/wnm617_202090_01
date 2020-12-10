@@ -11,19 +11,23 @@
     email: function() {
       return this.username+'@gmail.com';
     },
-    quote: function (tags) {
-      var quote = ['If you want the rainbow, you gotta put up with the rain.', 'Love life, enjoy everyday~', 'If life were predictable it would cease to be life, and be without flavor.','Life is what happens when you are busy making other plans.'];
-      return quote[tags.integer(0, quote.length - 1)];
-    },
+    // quote: function (tags) {
+      // var quote = ['If you want the rainbow, you gotta put up with the rain.', 'Love life, enjoy everyday~', 'If life were predictable it would cease to be life, and be without flavor.','Life is what happens when you are busy making other plans.'];
+      // return quote[tags.integer(0, quote.length - 1)];
+    // },
+    quote:'{{random("If you want the rainbow, you gotta put up with the rain.", "Love life, enjoy everyday~", "If life were predictable it would cease to be life, and be without flavor.","Life is what happens when you are busy making other plans.")}}',
     password: 'md5(pass)',
     img:function(tags) {
       return 'https://via.placeholder.com/400/'+
         tags.integer(700,999) + '/fff/?text=' + this.username;
     },
-    favorite: function (tags) {
-      var favorite = ['Si-fi Movies', 'Cooking', 'Outdoor Activities'];
-      return favorite[tags.integer(0, favorite.length - 1)];
-    },
+    phone: '+1 {{phone()}}',
+    address: '{{integer(100, 999)}} {{street()}}, {{integer(10000, 99999)}}',
+    // favorite: function (tags) {
+      // var favorite = ['Si-fi Movies', 'Cooking', 'Outdoor Activities'];
+      // return favorite[tags.integer(0, favorite.length - 1)];
+    // },
+    favorite:'{{random("Si-fi Movies", "Cooking", "Outdoor Activities")}}',
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
   }
 ]
@@ -43,14 +47,17 @@
       var mood = ['img/happy.png', 'img/smile.png', 'img/normal.png','img/sad.png','img/angry.png'];
       return mood[tags.integer(0, mood.length - 1)];
     },*/
-    date: '{{date(new Date(2020, 0, 1), new Date(), "Thursday, MM-dd-YYYY")}}',
-    address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+    week:'{{random("Sunday", "Monday", "Tuesday","Wednesday","Thursday","Friiday","Saturday")}}',
+    // date:'{{date(new Date(2020, 0, 1), new Date(), "MM-DD-YYYY")}}',
+    date: '{{date(new Date(2020, 0, 1), new Date(), "MM-dd-YYYY")}}',
+    location: '{{integer(100, 999)}} {{street()}}',
     title: '{{lorem(4, "words")}}',
     img:function(tags) {
       return 'http://via.placehold.com/400/'+
         tags.integer(700,999) + '/fff/?text=' + this.name;
     },
-    description: '{{lorem(3,"sentences")}}',
+    // description: '{{lorem(3,"sentences")}}',
+    description: '{{lorem(2,"paragraphs")}}',
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
   }
 ]
