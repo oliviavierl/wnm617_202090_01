@@ -54,7 +54,7 @@
     title: '{{lorem(4, "words")}}',
     img:function(tags) {
       return 'http://via.placehold.com/400/'+
-        tags.integer(700,999) + '/fff/?text=' + this.name;
+        tags.integer(700,999) + '/fff/?text=' + this.mood;
     },
     // description: '{{lorem(3,"sentences")}}',
     description: '{{lorem(2,"paragraphs")}}',
@@ -87,6 +87,10 @@
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
   }
 ]
+
+// https://json-generator.com
+// https://konbert.com/convert
+
 
 // USER TEMPLATE
 

@@ -23,8 +23,9 @@ const checkSignupForm = () => {
 const checkUserEditForm = () => {
    let username = $("#user-edit-username").val();
    let name = $("#user-edit-name").val();
-   let email = $("#user-edit-email").val();
+   let quote = $("#user-edit-quote").val();
    let phone = $("#user-edit-phone").val();
+   let email = $("#user-edit-email").val();
    let address = $("#user-edit-address").val();
    let favorite = $("#user-edit-favorite").val();
 
@@ -46,6 +47,9 @@ const checkMoodAddForm = () => {
    let title = $("#mood-add-title").val();
    let description = $("#mood-add-description").val();
    let image = $("#mood-add-image").val();
+
+
+   let type = $("[name='mood-add-type']:checked").val();
 
    query({
       type:'insert_mood',
@@ -146,7 +150,7 @@ const checkListFilter = async ({field,value}) => {
          params:[field,value,sessionStorage.userId]
       });
 
-   drawJournalList(r.result,"Search produced no results.");
+   drawMoodList(r.result,"Search produced no results.");
 }
 
 

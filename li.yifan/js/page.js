@@ -11,7 +11,7 @@ const ListPage = async() => {
 
     $("#list-page .filter-list").html(makeFilterList(d.result));
 
-   drawJournalList(d.result);
+   drawMoodList(d.result);
 
 
    // $("#list-page .moodlist").html(
@@ -103,18 +103,18 @@ const UserUploadPage = async() => {
 
 
 
-const JournalPage = async() => {
+const MoodPage = async() => {
    query({type:'mood_by_id',params:[sessionStorage.moodId]})
    .then(d=>{
       console.log(d);
-      $("#journal-page .profile")
-         .html(makeJournal(d.result))
+      $("#mood-page .profile")
+         .html(makeMood(d.result))
    });
 
    query({type:'locations_by_mood_id',params:[sessionStorage.moodId]})
    .then(d=>{
       console.log(d);
-      makeMap("#journal-page .map").then(map_el=>{
+      makeMap("#mood-page .map").then(map_el=>{
          makeMarkers(map_el,d.result)
       });
    });
@@ -124,13 +124,13 @@ const JournalPage = async() => {
 }
 
 
-const JournalEditPage = async() => {
+const MoodEditPage = async() => {
    let d = await query({type:'mood_by_id',params:[sessionStorage.moodId]});
 
    console.log(d);
 
    $("#mood-edit-form")
-      .html(makeJournalEditForm(d.result[0]))
+      .html(makeMoodEditForm(d.result[0]))
 }
 
 

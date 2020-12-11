@@ -13,15 +13,15 @@ $(()=>{
 
       // Page Routing
       switch(ui.toPage[0].id) {
-         case "map-page": MapPage(); break;
+         case "recent-page": RecentPage(); break;
          case "list-page": ListPage(); break;
 
          case "user-profile-page": UserProfilePage(); break;
          case "user-edit-page": UserEditPage(); break;
          case "user-upload-page": UserUploadPage(); break;
 
-         case "journal-page": JournalPage(); break;
-         case "journal-edit-page": JournalEditPage(); break;
+         case "mood-page": MoodPage(); break;
+         case "mood-edit-page": MoodEditPage(); break;
 
          case "location-add-page": LocationAddPage(); break;
       }
@@ -87,6 +87,9 @@ $(()=>{
          console.log(d)
          makeUploaderImage(this,d.result,'uploads/')
       })
+   })
+   .on("click","[name='mood-add-type']",function(){
+      $.mobile.navigate("#mood-add-page");
    })
 
 

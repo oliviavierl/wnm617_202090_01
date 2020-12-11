@@ -327,8 +327,8 @@ p {
 #user-profile-edit-page [data-role='main'],
 #user-password-edit-page [data-role='main'],
 #setting-page [data-role='main'],
-#journal-page [data-role='main'],
-#journal-edit-page [data-role='main']{
+#mood-page [data-role='main'],
+#mood-edit-page [data-role='main']{
    background-color: #1a2b3c;
 }
 
@@ -581,7 +581,7 @@ p {
 
 
 
-#journal-page [data-role='main'] {
+#mood-page [data-role='main'] {
     display: flex;
     flex-direction: column;
 }

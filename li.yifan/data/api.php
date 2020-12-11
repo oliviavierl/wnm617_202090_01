@@ -139,9 +139,9 @@ function makeStatement($data) {
          // Create new user
          $r = makeQuery($c,"INSERT INTO
             `track_users`
-            ('name',`username`,`email`,`quote`,`password`,`img`,`favorite`,`date_create`)
+            (`name`,`username`,`email`,`quote`,`password`,`img`,`phone`,`address`,`favorite`,`date_create`)
             VALUES
-            ('', ?, ?, ?, md5(?), 'https://via.placeholder.com/400?text=USER', ?, NOW())
+            ('', ?, ?, ?, md5(?), 'https://via.placeholder.com/400?text=USER', ?, ?, ?, NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
 
@@ -149,9 +149,9 @@ function makeStatement($data) {
       case "insert_mood":
          $r = makeQuery($c,"INSERT INTO
             `track_moods`
-            (`user_id`,`name`,`date`,`address`,`title`,`img`,`description`,`date_create`)
+            (`user_id`,`mood`,`icon`,`week`,`date`,`location`,`title`,`img`,`description`,`date_create`)
             VALUES
-            (?, ?, ?, ?, ?, 'https://via.placeholder.com/400?text=MOOD', ?, NOW())
+            (?, ?, ?, ?, ?, ?, ?, 'https://via.placeholder.com/400?text=MOOD', ?, NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
 
@@ -178,8 +178,10 @@ function makeStatement($data) {
             SET
             `username` = ?,
             `name` = ?,
-            `email` = ?
-            `quote` = ?
+            `email` = ?,
+            `quote` = ?,
+            `phone` = ?,
+            `address` = ?,
             `favorite` = ?
             WHERE `id` = ?
             ",$p,false);
@@ -201,9 +203,9 @@ function makeStatement($data) {
             SET
             `name` = ?,
             `title` = ?,
-            `address` = ?,
+            `location` = ?,
             `description` = ?,
-            'img' = ?
+            `img` = ?
             WHERE `id`=?
              ",$p,false);
          return ["result"=>"success"];

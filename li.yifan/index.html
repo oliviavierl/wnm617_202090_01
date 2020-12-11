@@ -193,6 +193,30 @@
 
    </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <section data-role="page" id="list-page">
       <header data-role="header">
          <h1>Journals</h1>
@@ -200,12 +224,16 @@
             <li class="flex-stretch"></li>
             <li><a href="#" data-activate="#list-add-journal">+</a></li>
          </ul>
+      </header>
 
+
+      <!-- <header data-role="header">
          <form class="hotdog" id="list-search-form" data-ajax="false">
             <input type="search" id="list-search-input" data-role="none" placeholder="Search">
          </form>
-   
+      </header> -->
       
+      <header data-role="header">
          <div class="filter-list">
             <!-- <div class="filter" data-field="type" data-value="">All</div>
             <div class="filter" data-field="type" data-value="cat">Cat</div>
@@ -403,7 +431,7 @@
       </div>
    </section>
 
-      <section data-role="page" id="journal-page">
+      <section data-role="page" id="mood-page">
       <!-- <header data-role="header">
          <h1>Journal 1</h1>
          <ul>
@@ -417,7 +445,7 @@
                <img src="img/back.png" alt="" class="icon">
             </a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#journal-edit-page">
+            <li><a href="#mood-edit-page">
                <img src="img/edit.png" alt="" class="icon">
             </a></li>
          </ul>
@@ -432,7 +460,7 @@
             </div>
          <!-- </div> -->
          <div class="profile-bottom">
-            <div class="map"></div>
+            <!-- <div class="map"></div> -->
          </div>
          <!-- <h4 class="journal-title">Thursday, Sep 10, 2020</h4>
          <div class="journal-row">
@@ -447,7 +475,7 @@
       </div>
    </section>
 
-   <section data-role="page" id="journal-edit-page">
+   <section data-role="page" id="mood-edit-page">
       <header data-role="header">
          <h1>Edit Journal</h1>
          <ul>
@@ -514,7 +542,33 @@
 
             <ul style="height: 100%; display: flex; flex-direction: row; padding: 0;">
                <li class="display-flex flex-align-center flex-justify-center">
-                  <a href="#mood-add-page">
+                  
+                  <input type="radio" name="mood-add-type" id="mood-add-type-happy" value="happy" data-role="none" class="hidden">
+                  <label for="mood-add-type-happy">
+                     <span class="mood-image"><img src="img/happy.png" class="mood"></span>
+                  </label>
+                  
+                  <input type="radio" name="mood-add-type" id="mood-add-type-smile" value="smile" data-role="none" class="hidden">
+                  <label for="mood-add-type-smile">
+                     <span class="mood-image"><img src="img/smile.png" class="mood"></span>
+                  </label>
+                  
+                  <input type="radio" name="mood-add-type" id="mood-add-type-normal" value="normal" data-role="none" class="hidden">
+                  <label for="mood-add-type-normal">
+                     <span class="mood-image"><img src="img/normal.png" class="mood"></span>
+                  </label>
+
+                  <input type="radio" name="mood-add-type" id="mood-add-type-sad" value="sad" data-role="none" class="hidden">
+                  <label for="mood-add-type-sad">
+                     <span class="mood-image"><img src="img/sad.png" class="mood"></span>
+                  </label>
+
+                  <input type="radio" name="mood-add-type" id="mood-add-type-angry" value="angry" data-role="none" class="hidden">
+                  <label for="mood-add-type-angry">
+                     <span class="mood-image"><img src="img/angry.png" class="mood"></span>
+                  </label>
+
+                  <!-- <a href="#mood-add-page">
                      <div class="mood-image"><img src="img/happy.png" class="mood"></div>
                   </a>
                </li>
@@ -536,7 +590,7 @@
                 <li class="display-flex flex-align-center flex-justify-center">
                   <a href="#mood-add-page">
                      <div class="mood-image"><img src="img/angry.png" class="mood"></div>
-                  </a>
+                  </a> -->
                </li>
             
                

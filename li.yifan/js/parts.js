@@ -3,7 +3,7 @@ const makeMoodList = templater(o=>`
    <div class="moodlist-item js-mood-jump" data-id="${o.id}">
 
       <div class="card soft">
-         <a href="#journal-page" class="card-row">
+         <a href="#mood-page" class="card-row">
             <div class="journal-mood-image"><img src="${o.icon}" class="list-mood"></div>
             <div>
                      
@@ -50,7 +50,7 @@ const makeUserProfile = templater(o=>`
    </div>
    `);
 
-const makeJournal = templater(o=>`
+const makeMood = templater(o=>`
    
    <h4 class="journal-title">${o.week}, ${o.date}</h4>
    <div class="journal-row">
@@ -152,7 +152,7 @@ ${FormControl({
 
 
 
-const makeJournalEditForm = o => `
+const makeMoodEditForm = o => `
 <input type="hidden" id="mood-edit-image" value="${o.img}">
 <label class="image-uploader thumbnail picked" style="background-image:url('${o.img}')">
    <input type="file" data-role="none" id="mood-edit-input">
@@ -190,26 +190,26 @@ ${FormControl({
 `;
 
 
-const drawJounalList = (a,empty_phrase="No jounals yet, you should add some.") => {
-   $("#list-page .journallist").html(
-      a.length ? makeJounalList(a) : empty_phrase
+const drawMoodList = (a,empty_phrase="No journals yet, you should add some.") => {
+   $("#list-page .moodlist").html(
+      a.length ? makeMoodList(a) : empty_phrase
    )
 }
 
 
 
-const capitalize = s => s[0].toUpperCase()+s.substr(1);
+const capitalize = s => s=='' ? '' : s[0].toUpperCase()+s.substr(1);
 
-const filterList = (journals,mood) => {
-   let a = [...(new Set(journals.map(o=>o[mood])))];
+const filterList = (moods,mood) => {
+   let a = [...(new Set(moods.map(o=>o[mood])))];
    return templater(o=>`<div class="filter" data-field="${mood}" data-value="${o}">${capitalize(o)}</div>`)(a);
 }
 
-const makeFilterList = (journals) => {
+const makeFilterList = (moods) => {
    return `
    <div class="filter" data-field="mood" data-value="">All</div>
    |
-   ${filterList(journals,'mood')}
+   ${filterList(moods,'mood')}
    `
 }
 
