@@ -60,6 +60,7 @@ const makeMood = templater(o=>`
       <div class="overscroll" style="padding-bottom: 6em;">
       <div class="card soft journal-img" style="padding: 0; height: 11em;"><img src="${o.img}"></div>
       <p style="text-align: left; font-weight: normal;">${o.description}</p>
+      </div>
    </div>
    `);
 
@@ -72,8 +73,8 @@ const makeMoodPopup = o => `
       </div>
    </div>
    <div class="flex-none mood-popup-description">
-      <div>${o.title}</div>
-      <div>${o.location}</div>
+      <div style="color: black;">${o.title}</div>
+      <div style="color: black;">${o.location}</div>
    </div>
    <div class="form-button js-mood-jump" data-id="${o.mood_id}" style="width:100%">Visit</div>
 </div>
@@ -158,14 +159,7 @@ const makeMoodEditForm = o => `
    <input type="file" data-role="none" id="mood-edit-input">
 </label>
 
-${FormControl({
-   namespace:'mood-edit',
-   name:'mood',
-   displayname:'Mood',
-   type:'text',
-   placeholder:'Choose the mood',
-   value:o.mood
-})}
+
 ${FormControl({
    namespace:'mood-edit',
    name:'title',
@@ -217,10 +211,10 @@ const makeFilterList = (moods) => {
 
 
 
+
 const makeUploaderImage = (el, name, folder='') => {
 
    $(el).parent().css({'background-image':`url(${folder+name}`}).addClass('picked')
       .prev().val(folder+name);
 }
-
 // My deesign below

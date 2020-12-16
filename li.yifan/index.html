@@ -98,8 +98,28 @@
                <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your user name">
             </div>
             <div class="form-control">
+               <label for="signup-name" class="form-label">Name</label>
+               <input id="signup-name" type="name" class="form-input" data-role="none" placeholder="Type your name">
+            </div>
+            <div class="form-control">
+               <label for="signup-quote" class="form-label">Quote</label>
+               <input id="signup-quote" type="quote" class="form-input" data-role="none" placeholder="Type your quote">
+            </div>
+            <div class="form-control">
+               <label for="signup-phone" class="form-label">Phone</label>
+               <input id="signup-phone" type="phone" class="form-input" data-role="none" placeholder="Type your phone number">
+            </div>
+            <div class="form-control">
                <label for="signup-email" class="form-label">Email</label>
                <input id="signup-email" type="email" class="form-input" data-role="none" placeholder="Type your email">
+            </div>
+            <div class="form-control">
+               <label for="signup-address" class="form-label">Address</label>
+               <input id="signup-address" type="address" class="form-input" data-role="none" placeholder="Type your address">
+            </div>
+            <div class="form-control">
+               <label for="signup-favorite" class="form-label">Favorite</label>
+               <input id="signup-favorite" type="favorite" class="form-input" data-role="none" placeholder="Type your favorite thing">
             </div>
             <div class="form-control">
                <label for="signup-password" class="form-label">Password</label>
@@ -120,6 +140,7 @@
          <!-- </div> -->
       </div>
    </section>
+  
 
 
    <section data-role="page" id="recent-page">
@@ -222,7 +243,7 @@
          <h1>Journals</h1>
          <ul>
             <li class="flex-stretch"></li>
-            <li><a href="#" data-activate="#list-add-journal">+</a></li>
+            <!-- <li><a href="#" data-activate="#list-add-journal">+</a></li> -->
          </ul>
       </header>
 
@@ -248,7 +269,7 @@
          <div class="calendar">
             <!-- <div class="calendar card soft"> -->
                <!-- <input type="datetime-local"> -->
-               <input type="date" data-role="none" class="form-input calendar">
+               <!-- <input type="date" data-role="none" class="form-input calendar"> -->
                <!-- <div class="calendar-row">
                   <h8 class="flex-stretch">September 2020</h8>
                   <img src="img/down.png" class="down-icon">
@@ -404,6 +425,7 @@
          </ul>
       </header>
       <div data-role="main">
+         <div class="overscroll">
          <form id="mood-add-form" data-ajax="false" style="padding:1em">
 
             <input type="hidden" id="mood-add-destination" value="#list-page">
@@ -414,20 +436,29 @@
                </label>
 
 
-            <div class="form-control">
-               <label for="list-add-name" class="form-label">Journal Name</label>
-               <input id="list-add-name" type="text" class="form-input" data-role="none">
+            <!-- <div class="form-control">
+               <label for="mood-add-week" class="form-label">Day of the Week</label>
+               <input id="mood-add-week" type="text" class="form-input" data-role="none">
             </div>
             <div class="form-control">
-               <label for="list-add-title" class="form-label">Journal Title</label>
-               <input id="list-add-title" type="text" class="form-input" data-role="none">
+               <label for="mood-add-date" class="form-label">Date</label>
+               <input id="mood-add-date" type="text" class="form-input" data-role="none">
+            </div> -->
+            <div class="form-control">
+               <label for="mood-add-location" class="form-label">Location</label>
+               <input id="mood-add-location" type="text" class="form-input" data-role="none">
             </div>
             <div class="form-control">
-               <label for="list-add-description" class="form-label">Journal Description</label>
-               <input id="list-add-description" type="text" class="form-input" data-role="none">
+               <label for="mood-add-title" class="form-label">Journal Title</label>
+               <input id="mood-add-title" type="text" class="form-input" data-role="none">
+            </div>
+            <div class="form-control">
+               <label for="mood-add-description" class="form-label">Journal Description</label>
+               <input id="mood-add-description" type="text" class="form-input" data-role="none">
             </div>
 
          </form>
+         </div>
       </div>
    </section>
 
@@ -481,7 +512,7 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-mood-deit">Save</a></li>
+            <li><a href="#" class="js-mood-edit">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -538,33 +569,34 @@
 
          <div class="card soft center">
             <h3>How are you?</h3>
-            <a href="#" data-activate="#choose-date"><h5>Thursday, Sep 10, 8:00 PM</h5></a>
+            <!-- <a href="#" data-activate="#choose-date"><h5>Thursday, Sep 10, 8:00 PM</h5></a> -->
+            <a href="#" data-activate="#choose-date"><h5>Thursday, 12-17-2020</h5></a>
 
             <ul style="height: 100%; display: flex; flex-direction: row; padding: 0;">
                <li class="display-flex flex-align-center flex-justify-center">
                   
-                  <input type="radio" name="mood-add-type" id="mood-add-type-happy" value="happy" data-role="none" class="hidden">
-                  <label for="mood-add-type-happy">
+                  <input type="radio" name="mood-add-mood" id="mood-add-mood-happy" value="happy" data-role="none" class="hidden">
+                  <label for="mood-add-mood-happy">
                      <span class="mood-image"><img src="img/happy.png" class="mood"></span>
                   </label>
                   
-                  <input type="radio" name="mood-add-type" id="mood-add-type-smile" value="smile" data-role="none" class="hidden">
-                  <label for="mood-add-type-smile">
+                  <input type="radio" name="mood-add-mood" id="mood-add-mood-smile" value="smile" data-role="none" class="hidden">
+                  <label for="mood-add-mood-smile">
                      <span class="mood-image"><img src="img/smile.png" class="mood"></span>
                   </label>
                   
-                  <input type="radio" name="mood-add-type" id="mood-add-type-normal" value="normal" data-role="none" class="hidden">
-                  <label for="mood-add-type-normal">
+                  <input type="radio" name="mood-add-mood" id="mood-add-mood-normal" value="normal" data-role="none" class="hidden">
+                  <label for="mood-add-mood-normal">
                      <span class="mood-image"><img src="img/normal.png" class="mood"></span>
                   </label>
 
-                  <input type="radio" name="mood-add-type" id="mood-add-type-sad" value="sad" data-role="none" class="hidden">
-                  <label for="mood-add-type-sad">
+                  <input type="radio" name="mood-add-mood" id="mood-add-mood-sad" value="sad" data-role="none" class="hidden">
+                  <label for="mood-add-mood-sad">
                      <span class="mood-image"><img src="img/sad.png" class="mood"></span>
                   </label>
 
-                  <input type="radio" name="mood-add-type" id="mood-add-type-angry" value="angry" data-role="none" class="hidden">
-                  <label for="mood-add-type-angry">
+                  <input type="radio" name="mood-add-mood" id="mood-add-mood-angry" value="angry" data-role="none" class="hidden">
+                  <label for="mood-add-mood-angry">
                      <span class="mood-image"><img src="img/angry.png" class="mood"></span>
                   </label>
 
@@ -603,18 +635,34 @@
          <form class="modal-popup" id="choose-date-form" data-ajax="false">
             <div class="modal-head"><h1>Change Date</h1></div>
             <div class="modal-body">
-               <div class="form-control">
+
+            <div class="form-control">
+               <label for="mood-add-week" class="form-label">Day of the Week</label>
+               <input id="mood-add-week" type="text" class="form-input" data-role="none">
+            </div>
+            <div class="form-control">
+               <label for="mood-add-date" class="form-label">Date</label>
+               <input id="mood-add-date" type="text" class="form-input" data-role="none">
+            </div>
+
+            
+
+
+
+               <!-- <div class="form-control">
                   <label for="list-add-name" class="form-label">Date</label>
                   <input id="change-date" type="text" class="form-input" data-role="none">
                </div>
                <div class="form-control">
                   <label for="list-add-type" class="form-label">Time</label>
                   <input id="change-time" type="text" class="form-input" data-role="none">
-               </div>
+               </div> -->
                
             </div>
             <div class="modal-foot">
-               <input type="submit" value="Save" data-role="none" class="form-button">
+               <!-- <input type="submit" value="Save" data-role="none" class="form-button"> -->
+               <a href="#" class="js-mood-add">
+            <button type="submit" class="form-button" data-role="none">Save</button></a>
             </div>
          </form>
       </div>
@@ -787,9 +835,9 @@
                <input type="file" data-role="none" id="user-upload-input">
             </label>
          </form>
-         
+         <label for="user-upload-input" class="form-button">Choose Image</label>
       </div>
-      <label for="user-upload-input" class="half-button-center">Choose Image</label>
+      
    </section>
 
 

@@ -34,7 +34,7 @@ const RecentPage = async() => {
    console.log(d)
 
    let valid_moods = d.result.reduce((r,o)=>{
-      o.icon = o.img;
+      // o.icon = o.img;
       if(o.lat && o.lng) r.push(o);
       return r;
    },[]);

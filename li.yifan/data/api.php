@@ -201,7 +201,7 @@ function makeStatement($data) {
          $r = makeQuery($c,"UPDATE
             `track_moods`
             SET
-            `name` = ?,
+         
             `title` = ?,
             `location` = ?,
             `description` = ?,

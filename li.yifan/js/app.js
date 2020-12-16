@@ -73,12 +73,12 @@ $(()=>{
    .on("click",'.js-location-add',function(e){
       checkLocationAddForm();
    })
-    .on("click",'.js-user-upload',function(e){
+   .on("click",'.js-user-upload',function(e){
       checkUserUploadForm();
    })
 
 
-    .on("click",".filter",function(){
+   .on("click",".filter",function(){
       checkListFilter($(this).data());
    })
    .on("change",".image-uploader input",function(){
@@ -88,7 +88,9 @@ $(()=>{
          makeUploaderImage(this,d.result,'uploads/')
       })
    })
-   .on("click","[name='mood-add-type']",function(){
+
+
+   .on("click","[name='mood-add-mood']",function(){
       $.mobile.navigate("#mood-add-page");
    })
 

@@ -1,7 +1,12 @@
 
 const checkSignupForm = () => {
    let username = $("#signup-username").val();
+   let name = $("#signup-name").val();
+   let quote = $("#signup-quote").val();
+   let phone = $("#signup-phone").val();
    let email = $("#signup-email").val();
+   let address = $("#signup-address").val();
+   let favorite = $("#signup-favorite").val();
    let password = $("#signup-password").val();
    let passwordconfirm = $("#signup-password-confirm").val();
 
@@ -9,7 +14,7 @@ const checkSignupForm = () => {
       throw "Passwords don't match";
       return;
    } else {
-      query({type:'insert_user',params:[username,email,password]})
+      query({type:'insert_user',params:[username,name,quote,phone,email,address,favorite,password]})
       .then(d=>{
          if(d.error) {
             throw d.error;
@@ -31,7 +36,7 @@ const checkUserEditForm = () => {
 
    query({
       type:'update_user',
-      params:[username,name,email,phone,address,favorite,sessionStorage.userId]
+      params:[username,name,quote,phone,email,address,favorite,sessionStorage.userId]
    }).then(d=>{
       if(d.error) {
          throw d.error;
@@ -43,17 +48,20 @@ const checkUserEditForm = () => {
 
 
 const checkMoodAddForm = () => {
-   let name = $("#mood-add-name").val();
+  
+   let week = $("#mood-add-week").val();
+   let date = $("#mood-add-date").val();
+   let location = $("#mood-add-location").val();
    let title = $("#mood-add-title").val();
    let description = $("#mood-add-description").val();
    let image = $("#mood-add-image").val();
 
 
-   let type = $("[name='mood-add-type']:checked").val();
+   let mood = $("[name='mood-add-mood']:checked").val();
 
    query({
       type:'insert_mood',
-      params:[sessionStorage.userId,name,title,description]
+      params:[sessionStorage.userId,mood,icon,week,date,location,title,description]
    }).then(d=>{
       if(d.error) {
          throw d.error;
@@ -69,14 +77,14 @@ const checkMoodAddForm = () => {
 
 
 const checkMoodEditForm = () => {
-   let name = $("#mood-edit-name").val();
+   
    let title = $("#mood-edit-title").val();
    let description = $("#mood-edit-description").val();
    let image = $("#mood-edit-image").val();
 
    query({
       type:'update_mood',
-      params:[name,title,description,sessionStorage.moodId]
+      params:[title,description,sessionStorage.moodId]
    }).then(d=>{
       if(d.error) {
          throw d.error;
