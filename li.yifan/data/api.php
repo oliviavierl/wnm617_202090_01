@@ -133,25 +133,26 @@ function makeStatement($data) {
       case "insert_user":
 
          // Check for duplicate users
-         $r = makeQuery("SELECT * FROM `track_users` WHERE `username`=? OR `email`=?",[$p[0],$p[1]]);
+         $r = makeQuery($c, "SELECT * FROM `track_users` WHERE `username`=? OR `email`=?",[$p[0],$p[1]]);
          if(count($r['result'])) return ["error"=>"Username or Email already exists"];
 
          // Create new user
          $r = makeQuery($c,"INSERT INTO
             `track_users`
-            (`name`,`username`,`email`,`quote`,`password`,`img`,`phone`,`address`,`favorite`,`date_create`)
+            (`username`,`name`,`quote`,`phone`,`email`,`address`,`img`,`favorite`,`password`,`date_create`)
             VALUES
-            ('', ?, ?, ?, md5(?), 'https://via.placeholder.com/400?text=USER', ?, ?, ?, NOW())
+            (?, ?, ?, ?, ?, ?, 'https://via.placeholder.com/400?text=USER', ?, md5(?), NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
 
 
       case "insert_mood":
+
          $r = makeQuery($c,"INSERT INTO
             `track_moods`
-            (`user_id`,`mood`,`icon`,`week`,`date`,`location`,`title`,`img`,`description`,`date_create`)
+            (`user_id`,`mood`,`img`,`week`,`date`,`location`,`title`,`description`,`date_create`)
             VALUES
-            (?, ?, ?, ?, ?, ?, ?, 'https://via.placeholder.com/400?text=MOOD', ?, NOW())
+            (?, ?, ?, ?, ?, ?, ?, ?, NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
 

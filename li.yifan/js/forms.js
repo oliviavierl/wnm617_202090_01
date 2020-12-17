@@ -54,14 +54,17 @@ const checkMoodAddForm = () => {
    let location = $("#mood-add-location").val();
    let title = $("#mood-add-title").val();
    let description = $("#mood-add-description").val();
-   let image = $("#mood-add-image").val();
+   let img = $("#mood-add-image").val();
 
 
    let mood = $("[name='mood-add-mood']:checked").val();
+   let icon = "img/" + $("[name='mood-add-mood']:checked").val() + ".png";
+
+   
 
    query({
       type:'insert_mood',
-      params:[sessionStorage.userId,mood,icon,week,date,location,title,description]
+      params:[sessionStorage.userId,mood,img,week,date,location,title,description]
    }).then(d=>{
       if(d.error) {
          throw d.error;
@@ -73,6 +76,7 @@ const checkMoodAddForm = () => {
       sessionStorage.moodId = d.id;
       $.mobile.navigate($("#mood-add-destination").val());
    })
+
 }
 
 

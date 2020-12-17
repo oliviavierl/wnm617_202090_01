@@ -126,8 +126,8 @@
                <input id="signup-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
             <div class="form-control">
-               <label for="confirm-password" class="form-label">Confirm Password</label>
-               <input id="confirm-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
+               <label for="signup-password-confirm" class="form-label">Confirm Password</label>
+               <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
             
             <div class="form-control">
@@ -151,10 +151,10 @@
             <div class="btn-circle" data-toggle="#recent-drawer">&plus;</div>
          </div>
 
-         <div class="hotdog">
+         <!-- <div class="hotdog">
             <img src="img/search.png" class="search-icon">
             <input id="search-bar" type="search" class="search-input" data-role="none" placeholder="Search location" required>
-            <!--<span class="ydr"><img src="img/clear.png" class="search-icon"></span>
+           <span class="ydr"><img src="img/clear.png" class="search-icon"></span>
          </div> -->
 
          <div class="modal" id="recent-drawer">
@@ -436,14 +436,14 @@
                </label>
 
 
-            <!-- <div class="form-control">
+            <div class="form-control">
                <label for="mood-add-week" class="form-label">Day of the Week</label>
                <input id="mood-add-week" type="text" class="form-input" data-role="none">
             </div>
             <div class="form-control">
                <label for="mood-add-date" class="form-label">Date</label>
                <input id="mood-add-date" type="text" class="form-input" data-role="none">
-            </div> -->
+            </div>
             <div class="form-control">
                <label for="mood-add-location" class="form-label">Location</label>
                <input id="mood-add-location" type="text" class="form-input" data-role="none">
@@ -484,6 +484,7 @@
       <div data-role="main">
          <!-- <div class="overscroll"> -->
             <div class="profile-top">
+               
                <!-- <ul class="back-icon">
                   <a href="#" data-rel="back"><img src="img/back.png"></a>
                </ul> -->
@@ -516,8 +517,12 @@
          </ul>
       </header>
       <div data-role="main">
+        
          <form id="mood-edit-form" data-ajax="false" style="padding:1em">
-         </form>
+         </form> 
+         <label class="form-button"><a href="#location-add-page">Add Location</a></label>
+         <!-- <label for="js-mood-delete" class="form-button">Delete</label> -->
+         
       </div>
    </section>
 
@@ -630,7 +635,7 @@
          </div>
       </div>
 
-      <div class="modal" id="choose-date">
+      <!-- <div class="modal" id="choose-date">
          <div class="modal-back" data-deactivate="#choose-date"></div>
          <form class="modal-popup" id="choose-date-form" data-ajax="false">
             <div class="modal-head"><h1>Change Date</h1></div>
@@ -649,7 +654,7 @@
 
 
 
-               <!-- <div class="form-control">
+               <div class="form-control">
                   <label for="list-add-name" class="form-label">Date</label>
                   <input id="change-date" type="text" class="form-input" data-role="none">
                </div>
@@ -658,14 +663,14 @@
                   <input id="change-time" type="text" class="form-input" data-role="none">
                </div> -->
                
-            </div>
+            <!-- </div>
             <div class="modal-foot">
-               <!-- <input type="submit" value="Save" data-role="none" class="form-button"> -->
-               <a href="#" class="js-mood-add">
+               <input type="submit" value="Save" data-role="none" class="form-button"> -->
+               <!-- <a href="#" class="js-mood-add">
             <button type="submit" class="form-button" data-role="none">Save</button></a>
             </div>
          </form>
-      </div>
+      </div> -->
 
       
    </section>
@@ -922,7 +927,7 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#location-description-page">Next</a></li>
+            <li><a href="#" class="js-location-add">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -934,7 +939,7 @@
 
    <section data-role="page" id="location-description-page">
       <header data-role="header">
-         <h1>Describe the Animal</h1>
+         <h1></h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>

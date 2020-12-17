@@ -62,13 +62,13 @@ $(()=>{
    // FORM SUBMIT CLICKS
 
    .on("click",'.js-user-edit',function(e){
-      checkUserProfileEditForm();
+      checkUserEditForm();
    })
    .on("click",'.js-mood-add',function(e){
       checkMoodAddForm();
    })
    .on("click",'.js-mood-edit',function(e){
-      checkMoodEditorm();
+      checkMoodEditForm();
    })
    .on("click",'.js-location-add',function(e){
       checkLocationAddForm();
@@ -110,7 +110,7 @@ $(()=>{
    //})
     .on("click",'.js-mood-jump',function(e){
       sessionStorage.moodId = $(this).data("id");
-      $.mobile.navigate('#journal-page');
+      $.mobile.navigate('#mood-page');
    })
     .on("click",'.js-mood-delete',function(e){
       checkMoodDelete($(this).data("id"));
