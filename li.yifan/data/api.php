@@ -152,7 +152,7 @@ function makeStatement($data) {
             `track_moods`
             (`user_id`,`mood`,`img`,`week`,`date`,`location`,`title`,`description`,`date_create`)
             VALUES
-            (?, ?, ?, ?, ?, ?, ?, ?, NOW())
+            (?, ?, 'https://via.placeholder.com/400?text=MOOD', ?, ?, ?, ?, ?, NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
 
@@ -179,9 +179,10 @@ function makeStatement($data) {
             SET
             `username` = ?,
             `name` = ?,
-            `email` = ?,
             `quote` = ?,
             `phone` = ?,
+            `email` = ?,
+            
             `address` = ?,
             `favorite` = ?
             WHERE `id` = ?

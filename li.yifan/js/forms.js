@@ -48,17 +48,18 @@ const checkUserEditForm = () => {
 
 
 const checkMoodAddForm = () => {
-  
+   let mood = $("[name='mood-add-mood']:checked").val();
+   let img = $("#mood-add-image").val();
    let week = $("#mood-add-week").val();
    let date = $("#mood-add-date").val();
    let location = $("#mood-add-location").val();
    let title = $("#mood-add-title").val();
    let description = $("#mood-add-description").val();
-   let img = $("#mood-add-image").val();
-
-
-   let mood = $("[name='mood-add-mood']:checked").val();
+    
    let icon = "img/" + $("[name='mood-add-mood']:checked").val() + ".png";
+
+
+  
 
    
 
@@ -83,12 +84,13 @@ const checkMoodAddForm = () => {
 const checkMoodEditForm = () => {
    
    let title = $("#mood-edit-title").val();
+   let location = $("#mood-edit-location").val();
    let description = $("#mood-edit-description").val();
    let image = $("#mood-edit-image").val();
 
    query({
       type:'update_mood',
-      params:[title,description,sessionStorage.moodId]
+      params:[title,location,description,sessionStorage.moodId]
    }).then(d=>{
       if(d.error) {
          throw d.error;

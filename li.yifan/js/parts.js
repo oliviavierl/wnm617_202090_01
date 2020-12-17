@@ -170,12 +170,13 @@ ${FormControl({
 })}
 ${FormControl({
    namespace:'mood-edit',
-   name:'description',
-   displayname:'Description',
+   name:'location',
+   displayname:'location',
    type:'text',
-   placeholder:'Type the journal description',
-   value:o.description
+   placeholder:'Type the journal location',
+   value:o.location
 })}
+
 
 <div class="form-control">
    <label for="mood-edit-description" class="form-label">Description</label>
